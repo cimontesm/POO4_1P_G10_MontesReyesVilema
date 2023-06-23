@@ -9,5 +9,7 @@ package com.mycompany.proyectog10;
  * @author cmontes
  */
 public class Sistema {
-    
+    public static void main(String[] args){
+        
+    }
 }
