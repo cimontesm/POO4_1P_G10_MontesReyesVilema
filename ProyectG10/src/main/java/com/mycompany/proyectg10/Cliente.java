@@ -8,6 +8,6 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public class Cliente extends Usuario {
+public class Cliente {
     
 }
