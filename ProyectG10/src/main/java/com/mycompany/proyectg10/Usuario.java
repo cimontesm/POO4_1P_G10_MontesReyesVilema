@@ -9,5 +9,6 @@ package com.mycompany.proyectg10;
  * @author cmontes
  */
 public abstract class Usuario {
-    
+    int cedula;
+    String nombre;
 }
