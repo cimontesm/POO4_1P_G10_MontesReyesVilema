@@ -8,6 +8,6 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public class Usuario {
+public abstract class Usuario {
     
 }
