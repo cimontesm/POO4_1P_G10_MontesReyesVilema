@@ -13,16 +13,17 @@ public abstract class Usuario {
     private String nombre;
     private String apellidos;
     private int edad;
-    private TipoUsuario usuario;
+    private TipoUsuario perfil;
     private String correo;
     private String contrasenia;
+    private String usuario;
 
-    public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario usuario, String correo, String contrasenia) {
+    public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.edad = edad;
-        this.usuario = usuario;
+        this.perfil = perfil;
         this.correo = correo;
         this.contrasenia = contrasenia;
     }
@@ -59,12 +60,12 @@ public abstract class Usuario {
         this.edad = edad;
     }
 
-    public TipoUsuario getUsuario() {
-        return usuario;
+    public TipoUsuario getPerfil() {
+        return perfil;
     }
 
-    public void setUsuario(TipoUsuario usuario) {
-        this.usuario = usuario;
+    public void setPerfil(TipoUsuario perfil) {
+        this.perfil = perfil;
     }
 
     public String getCorreo() {
@@ -81,6 +82,14 @@ public abstract class Usuario {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
     
     
