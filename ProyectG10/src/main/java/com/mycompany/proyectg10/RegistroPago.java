@@ -8,6 +8,6 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public enum Pago {
+public enum RegistroPago {
     EFECTIVO, TARJETA;
 }
