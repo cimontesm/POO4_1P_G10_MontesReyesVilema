@@ -6,8 +6,8 @@ package com.mycompany.proyectg10;
 
 /**
  *
- * @author cmontes
+ * @author danie
  */
 public class Revision {
-    int codigo;
+    
 }
