@@ -9,5 +9,11 @@ package com.mycompany.proyectg10;
  * @author cmontes
  */
 public abstract class Usuario {
-    
+    private int numCedula;
+    private String nombre;
+    private String apellidos;
+    private int edad;
+    private String usuario;
+    private String correo;
+    private String contrasenia;
 }
