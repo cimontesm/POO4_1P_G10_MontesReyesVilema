@@ -16,8 +16,6 @@ public class Revision {
         this.fechaRevision = fechaRevision;
         this.codigo = codigo;
     }
-    
-   
 
     
 }
