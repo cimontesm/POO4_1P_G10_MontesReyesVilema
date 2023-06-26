@@ -15,7 +15,11 @@ public class Revision {
     public Revision(String fechaRevision, int codigo) {
         this.fechaRevision = fechaRevision;
         this.codigo = codigo;
+        
     }
-
+    
+    public Revision(){
+        this.fechaRevision = "06/06/2001";
+    }
     
 }
