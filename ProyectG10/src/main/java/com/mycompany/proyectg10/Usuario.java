@@ -10,13 +10,9 @@ package com.mycompany.proyectg10;
  */
 public abstract class Usuario {
     private int numCedula;
-    private String nombre;
-    private String apellidos;
+    private String nombre, apellidos, correo, contrasenia, usuario;
     private int edad;
     private TipoUsuario perfil;
-    private String correo;
-    private String contrasenia;
-    private String usuario;
 
     public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;

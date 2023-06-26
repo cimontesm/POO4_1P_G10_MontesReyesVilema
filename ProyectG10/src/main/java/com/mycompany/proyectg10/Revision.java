@@ -9,5 +9,15 @@ package com.mycompany.proyectg10;
  * @author danie
  */
 public class Revision {
+    private String fechaRevision;
+    private int codigo;
+
+    public Revision(String fechaRevision, int codigo) {
+        this.fechaRevision = fechaRevision;
+        this.codigo = codigo;
+    }
+    
+   
+
     
 }
