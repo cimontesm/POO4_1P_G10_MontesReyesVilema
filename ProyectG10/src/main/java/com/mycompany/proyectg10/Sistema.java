@@ -8,7 +8,7 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public class Sistema {
+public class Sistema { //este es el main del programa
     public static void main(String[] args){
         
     }

@@ -6,7 +6,7 @@ package com.mycompany.proyectg10;
 
 /**
  *
- * @author danie
+ * @author cmontes
  */
 public class Vehiculo {
     

@@ -6,8 +6,8 @@ package com.mycompany.proyectg10;
 
 /**
  *
- * @author danie
+ * @author cmontes
  */
 public enum TipoCliente {
-    ESTANDAR,ESTRELLA
+    ESTANDAR, ESTRELLA;
 }
