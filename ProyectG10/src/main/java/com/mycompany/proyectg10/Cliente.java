@@ -19,7 +19,6 @@ public class Cliente extends Usuario {
         this.puntosLicencia = puntosLicencia;
         this.tipoC = tipoC;
     }
-    
     public int getTarjetaCredito() {
         return tarjetaCredito;
     }
@@ -38,7 +37,5 @@ public class Cliente extends Usuario {
     public void setTipoC(TipoCliente tipoC) {
         this.tipoC = tipoC;
     }
-    
-    
     
 }
