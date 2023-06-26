@@ -18,8 +18,6 @@ public class Revision {
         
     }
     
-    public Revision(){
-        this.fechaRevision = "06/06/2001";
-    }
+
     
 }
