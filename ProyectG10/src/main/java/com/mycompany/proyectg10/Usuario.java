@@ -13,6 +13,8 @@ public abstract class Usuario {
     private String nombre, apellidos, correo, contrasenia, usuario;
     private int edad;
     private TipoUsuario perfil;
+    
+    public abstract void consultarMultas();
 
     public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
@@ -24,6 +26,8 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
     }
 
+    
+    //getters y setters 
     public int getNumCedula() {
         return numCedula;
     }
@@ -87,6 +91,5 @@ public abstract class Usuario {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
     
 }
