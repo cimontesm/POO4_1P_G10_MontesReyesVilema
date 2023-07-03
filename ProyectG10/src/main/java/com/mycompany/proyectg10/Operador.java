@@ -8,11 +8,6 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public class Vehiculo {
-    String numPlaca;
-    String matricula;
-    String marca;
-    int anio;
-    String chasis;
-    String color;
+public class Operador {
+    double sueldo;
 }
