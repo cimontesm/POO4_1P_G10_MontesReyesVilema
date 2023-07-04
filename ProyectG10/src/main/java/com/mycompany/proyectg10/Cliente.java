@@ -38,5 +38,10 @@ public class Cliente extends Usuario {
         this.tipoC = tipoC;
     }
     
+    @Override
+    public void consultarMultas(){
+        
+    }
+
     
 }
