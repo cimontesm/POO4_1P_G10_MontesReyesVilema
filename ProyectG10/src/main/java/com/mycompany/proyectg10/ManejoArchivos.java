@@ -4,9 +4,7 @@
  */
 package com.mycompany.proyectg10;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
@@ -42,5 +40,28 @@ public class ManejoArchivos {
             }
         }
         return lineas;
+    }
+    
+    public static void EscribirArchivo(String nombreArchivo,String linea) {
+        FileWriter fichero = null;
+        BufferedWriter bw = null;
+        PrintWriter pw = null;
+        
+        try {
+            fichero = new FileWriter(nombreArchivo,true);
+            bw = new BufferedWriter(fichero);
+            bw.write(linea+"\n");
+            System.out.println("ksdsdlsd");
+        } catch (Exception e1){
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero){
+                    bw.close();
+                }
+            } catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
     }
 }
