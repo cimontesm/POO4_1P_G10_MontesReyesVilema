@@ -8,6 +8,12 @@ package com.mycompany.proyectg10;
  *
  * @author cmontes
  */
-public class Operador {
-    double sueldo;
+public abstract class Operador extends Usuario{
+//    double sueldo;
+    
+    public void escribirArchivo(){
+        ManejoArchivos.LeeFichero("operadores.txt");
+        String[] columnas = "operadores.txt".split(",");
+        double sueldo;
+    }
 }
