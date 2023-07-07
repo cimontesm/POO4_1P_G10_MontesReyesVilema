@@ -10,7 +10,7 @@ package com.mycompany.proyectg10;
  */
 public class Vehiculo {
 //    String numPlaca;
-//    String matricula;
+//    int cedula;
 //    String marca;
 //    int anio;
 //    String chasis;
@@ -19,8 +19,11 @@ public class Vehiculo {
     
     public void escribirArchivo(){
         ManejoArchivos.LeeFichero("vehiculos.txt");
-        String[] split = "vehiculos.txt".strip().split(",");
-        //int matricula = "vehiculos.txt".indexOf(0);
+        String[] columnas = "vehiculos.txt".split(",");
+        int cedula = "vehiculos.txt".indexOf(0);//en el archivo la primera columna eran cedulas no matriculas
+        
     }
+    
+    
     
 }
