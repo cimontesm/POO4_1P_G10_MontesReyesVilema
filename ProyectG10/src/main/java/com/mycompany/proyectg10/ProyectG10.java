@@ -10,5 +10,7 @@ package com.mycompany.proyectg10;
  * @author cmontes
  */
 public class ProyectG10 {
-    
+    public static void main(String[] args){
+        
+    }
 }
