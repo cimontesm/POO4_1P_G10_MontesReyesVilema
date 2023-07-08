@@ -4,9 +4,6 @@
  */
 package com.mycompany.proyectg10;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -75,6 +72,14 @@ public abstract class Operador extends Usuario{
           
         
     }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
         
         
 
@@ -83,12 +88,19 @@ public abstract class Operador extends Usuario{
     public void consultarMultas(ArrayList<Multa> listaMultas){
         
         Scanner sc = new Scanner(System.in);
-        System.out.println("Imgrese el mes a consultar: ");
+        System.out.println("Ingrese el mes a consultar: ");
+        String mes= sc.nextLine();
+        System.out.println("Conductores Multados");
+        //SimpleDateFormat fecha= new SimpleDateFormat("dd-mm-yyy");
+        System.out.println();
+        
     }
     
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
-        
+        System.out.println(getNombre()+" " + getApellidos()+" | "+" | "+sueldo); 
         
     }
+    
+     
 
 }
