@@ -9,12 +9,11 @@ package com.mycompany.proyectg10;
  * @author cmontes
  */
 public abstract class Usuario {
-    private int numCedula;
-    private String nombre, apellidos, correo, contrasenia, usuario;
+    private String numCedula, nombre, apellidos, correo, contrasenia, usuario;
     private int edad;
     private TipoUsuario perfil;
     
-    public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
+    public Usuario(String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -28,11 +27,11 @@ public abstract class Usuario {
 
     
     //getters y setters 
-    public int getNumCedula() {
+    public String getNumCedula() {
         return numCedula;
     }
 
-    public void setNumCedula(int numCedula) {
+    public void setNumCedula(String numCedula) {
         this.numCedula = numCedula;
     }
 
