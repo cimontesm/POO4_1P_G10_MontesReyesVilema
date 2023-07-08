@@ -14,10 +14,6 @@ public abstract class Usuario {
     private int edad;
     private TipoUsuario perfil;
     
-    public void consultarMultas(){
-        
-    }
-
     public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
         this.nombre = nombre;
@@ -27,6 +23,8 @@ public abstract class Usuario {
         this.correo = correo;
         this.contrasenia = contrasenia;
     }
+
+    public abstract void consultarMultas();
 
     
     //getters y setters 
