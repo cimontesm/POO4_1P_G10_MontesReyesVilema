@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author cmontes
  */
-public class Cliente extends Usuario {
+public abstract class Cliente extends Usuario {
     private int tarjetaCredito;
     private int puntosLicencia;
     private TipoCliente tipoC;

@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectg10;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cmontes
@@ -21,9 +23,10 @@ public abstract class Usuario {
         this.perfil = perfil;
         this.correo = correo;
         this.contrasenia = contrasenia;
+        
     }
 
-    public abstract void consultarMultas();
+    public abstract void consultarMultas(ArrayList<Multa> listaMultas);
 
     
     //getters y setters 
