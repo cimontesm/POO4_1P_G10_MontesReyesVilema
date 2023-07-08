@@ -17,9 +17,11 @@ public abstract class Operador extends Usuario{
         ManejoArchivos.LeeFichero("operadores.txt");
         String[] columnas = "operadores.txt".split(",");
         double sueldo;
+        
     }
     
     public void registrarPago(){
+        //ManejoArchivos.EscribirArchivo("pagos.txt", "registrarPago");
         
         Scanner sc = new Scanner(System.in);
         
@@ -61,8 +63,11 @@ public abstract class Operador extends Usuario{
             System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
         }
         
+        
 
     }
+    
+    
     
     @Override
     public void consultarMultas(){
