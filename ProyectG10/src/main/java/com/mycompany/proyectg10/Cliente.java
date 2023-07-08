@@ -15,12 +15,14 @@ public abstract class Cliente extends Usuario {
     private int tarjetaCredito;
     private int puntosLicencia;
     private TipoCliente tipoC;
+    private Vehiculo vehiculo;
     
-    public Cliente(String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC){
+    public Cliente(String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
         super(numCedula,nombre,apellidos,edad,perfil,correo,contrasenia);
         this.tarjetaCredito = tarjetaCredito;
         this.puntosLicencia = puntosLicencia;
         this.tipoC = tipoC;
+        this.vehiculo = vehiculo;
     }
     public int getTarjetaCredito() {
         return tarjetaCredito;
@@ -40,6 +42,12 @@ public abstract class Cliente extends Usuario {
     public void setTipoC(TipoCliente tipoC) {
         this.tipoC = tipoC;
     }
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
     
     public double calcularTotal(ArrayList<Multa> listaMultas){
         ArrayList<Double> valoresMultas = new ArrayList<>();
@@ -58,7 +66,11 @@ public abstract class Cliente extends Usuario {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese su cédula o número de placa: ");
         String dato = sc.nextLine();
-        
+        for (Multa multa : listaMultas){
+            if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
+                
+            }
+        }
     }
     
     public void agendarRev(String numPlaca){
