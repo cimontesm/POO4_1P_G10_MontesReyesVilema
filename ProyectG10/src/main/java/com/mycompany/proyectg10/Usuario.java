@@ -14,7 +14,9 @@ public abstract class Usuario {
     private int edad;
     private TipoUsuario perfil;
     
-    public abstract void consultarMultas();
+    public void consultarMultas(){
+        
+    }
 
     public Usuario(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
