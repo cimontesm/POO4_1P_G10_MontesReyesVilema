@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -9,16 +9,40 @@ package com.mycompany.proyectg10;
  * @author danie
  */
 public class Revision {
+    private String codigo;
+    private String cedula;
+    private String placa;
     private String fechaRevision;
-    private int codigo;
-    private double valorAPagar;
-    private double valorEstrella;
 
-    public Revision(String fechaRevision, int codigo, double valorAPagar, double valorEstrella) {
-        this.fechaRevision = fechaRevision;
+    public Revision(String codigo, String cedula, String placa, String fechaRevision) {
         this.codigo = codigo;
-        this.valorAPagar = valorAPagar;
-        this.valorEstrella = valorEstrella;
+        this.cedula = cedula;
+        this.placa = placa;
+        this.fechaRevision = fechaRevision;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public String getFechaRevision() {
@@ -29,32 +53,11 @@ public class Revision {
         this.fechaRevision = fechaRevision;
     }
 
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public double getValorAPagar() {
-        return valorAPagar;
-    }
-
-    public void setValorAPagar(double valorAPagar) {
-        this.valorAPagar = valorAPagar;
-    }
-
-    public double getValorEstrella() {
-        return valorEstrella;
-    }
-
-    public void setValorEstrella(double valorEstrella) {
-        this.valorEstrella = valorEstrella;
-    }
-
   
-    
+  
+    public String escribirRevision(){
+        return this.codigo+","+this.cedula+","+this.placa+","+this.fechaRevision;
+    }
 
     
 }
