@@ -4,6 +4,9 @@
  */
 package com.mycompany.proyectg10;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -13,10 +16,12 @@ import java.util.Scanner;
 public abstract class Operador extends Usuario{
 //    double sueldo;
     
+        
+    
     public void escribirArchivo(){
         ManejoArchivos.LeeFichero("operadores.txt");
         String[] columnas = "operadores.txt".split(",");
-        double sueldo;
+        
         
     }
     
@@ -51,7 +56,7 @@ public abstract class Operador extends Usuario{
         int modoPago = sc.nextInt();
         
         if(modoPago==2){
-            //valorAPagar=valorAPagar*0.9;
+            //valorAPagar=valorAPagar*0.1;
         }
 
         System.out.println("Desea proceder con el pago? ");
@@ -60,7 +65,15 @@ public abstract class Operador extends Usuario{
         System.out.println("Elija una opcion: ");
         int proceder= sc.nextInt();
         if(proceder==1){
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("pagos.txt", true))) {
+            //String registro = "codigoPago+","+numCedula + ","+valorAPagar+"," + tipoPago + "," + monto";
+            //writer.write(registro);
+            writer.newLine();
             System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
+        } catch (IOException e) {
+            System.out.println("Error al registrar el pago: " + e.getMessage());
+        }
+          
         }
         
         
@@ -74,6 +87,6 @@ public abstract class Operador extends Usuario{
         
     }
     
-//    public registrarUsuarios(){
+//    public consultarUsuarios(){
 //    }
 }
