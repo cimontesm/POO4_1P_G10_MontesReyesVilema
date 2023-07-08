@@ -54,9 +54,10 @@ public abstract class Cliente extends Usuario {
     }
     
     @Override
-    public void consultarMultas(){
+    public void consultarMultas(ArrayList<Multa> listaMultas){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese su cédula o número de placa: ");
+        String dato = sc.nextLine();
         
     }
     
