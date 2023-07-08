@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectg10;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cmontes
@@ -38,10 +40,24 @@ public class Cliente extends Usuario {
         this.tipoC = tipoC;
     }
     
+    public double calcularTotal(ArrayList<Multa> listaMultas){
+        ArrayList<Double> valoresMultas = new ArrayList<>();
+        double total = 0;
+        for (Multa m : listaMultas){
+            valoresMultas.add(m.getValorAPagar());
+        }
+        for (int i=0;i<valoresMultas.size();i++){
+            total += valoresMultas.get(i);
+        }
+        return total;
+    }
+    
     @Override
     public void consultarMultas(){
         
     }
 
-    
+    public void agendarRev(String numPlaca){
+        
+    }
 }
