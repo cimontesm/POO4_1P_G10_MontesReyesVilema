@@ -4,9 +4,7 @@
  */
 package com.mycompany.proyectg10;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,20 +12,17 @@ import java.util.Scanner;
  * @author cmontes
  */
 public abstract class Operador extends Usuario{
-//    double sueldo;
-    
-        
-    
-    public void escribirArchivo(){
-        ManejoArchivos.LeeFichero("operadores.txt");
-        String[] columnas = "operadores.txt".split(",");
-        
-        
+    private double sueldo;
+
+    public Operador(double sueldo, String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
+        super(numCedula, nombre, apellidos, edad, perfil, correo, contrasenia);
+        this.sueldo = sueldo;
     }
+
+    
+    
     
     public void registrarPago(){
-        //ManejoArchivos.EscribirArchivo("pagos.txt", "registrarPago");
-        
         Scanner sc = new Scanner(System.in);
         
         System.out.println("----------------");
@@ -38,15 +33,17 @@ public abstract class Operador extends Usuario{
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
         System.out.println("Elija una opcion: ");
-        int tipoP = sc.nextInt();
-        
-        if(tipoP == 1){
-            consultarMultas();
+        int tipoP=sc.nextInt();
+        if(tipoP==1){
+            System.out.println("");
+            
         }else{
-            //Revision.getValorAPagar();
+            System.out.println();
         }
+            
+            
         
-        System.out.println("Valor a pagar: ");
+        System.out.println("Valor a pagar: ");//+el valor a pagar que sale de multas
 
         
         System.out.println("Que modo de pago va a usar?");
@@ -57,6 +54,10 @@ public abstract class Operador extends Usuario{
         
         if(modoPago==2){
             //valorAPagar=valorAPagar*0.1;
+            System.out.println();
+        }else{
+            System.out.println();
+            
         }
 
         System.out.println("Desea proceder con el pago? ");
@@ -64,29 +65,26 @@ public abstract class Operador extends Usuario{
         System.out.println("2. No ");
         System.out.println("Elija una opcion: ");
         int proceder= sc.nextInt();
-        if(proceder==1){
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("pagos.txt", true))) {
-            //String registro = "codigoPago+","+numCedula + ","+valorAPagar+"," + tipoPago + "," + monto";
-            //writer.write(registro);
-            writer.newLine();
-            System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
-        } catch (IOException e) {
-            System.out.println("Error al registrar el pago: " + e.getMessage());
+        if(proceder==1){            
+            System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");        
+        
         }
           
-        }
+        
+    }
         
         
 
-    }
-    
-    
     
     @Override
-    public void consultarMultas(){
-        
+    public void consultarMultas(ArrayList<Multa> listaMultas){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Imgrese el mes a consultar: ");
     }
     
-//    public consultarUsuarios(){
-//    }
+    public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
+        
+        
+    }
+
 }
