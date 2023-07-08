@@ -81,6 +81,7 @@ public abstract class Operador extends Usuario{
     
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas){
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("Imgrese el mes a consultar: ");
     }
