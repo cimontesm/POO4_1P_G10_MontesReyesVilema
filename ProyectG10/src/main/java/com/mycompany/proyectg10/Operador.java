@@ -35,6 +35,8 @@ public abstract class Operador extends Usuario{
         
         if(tipoP == 1){
             consultarMultas();
+        }else{
+            //Revision.getValorAPagar();
         }
         
         System.out.println("Valor a pagar: ");
@@ -45,10 +47,19 @@ public abstract class Operador extends Usuario{
         System.out.println("2. Tarjeta de crédito");
         System.out.println("Elija una opcion:  ");
         int modoPago = sc.nextInt();
-
         
-        System.out.print("Ingrese el monto a pagar: ");
-        double monto = sc.nextDouble();
+        if(modoPago==2){
+            //valorAPagar=valorAPagar*0.9;
+        }
+
+        System.out.println("Desea proceder con el pago? ");
+        System.out.println("1. Si ");
+        System.out.println("2. No ");
+        System.out.println("Elija una opcion: ");
+        int proceder= sc.nextInt();
+        if(proceder==1){
+            System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
+        }
         
 
     }
