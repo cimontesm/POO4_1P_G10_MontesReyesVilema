@@ -5,6 +5,7 @@
 package com.mycompany.proyectg10;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -15,7 +16,7 @@ public class Cliente extends Usuario {
     private int puntosLicencia;
     private TipoCliente tipoC;
     
-    public Cliente(int numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC){
+    public Cliente(String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC){
         super(numCedula,nombre,apellidos,edad,perfil,correo,contrasenia);
         this.tarjetaCredito = tarjetaCredito;
         this.puntosLicencia = puntosLicencia;
@@ -54,9 +55,11 @@ public class Cliente extends Usuario {
     
     @Override
     public void consultarMultas(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese su cédula o número de placa: ");
         
     }
-
+    
     public void agendarRev(String numPlaca){
         
     }
