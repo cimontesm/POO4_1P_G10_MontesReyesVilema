@@ -7,6 +7,7 @@ package com.mycompany.proyectg10;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -83,7 +84,7 @@ public abstract class Operador extends Usuario{
     
     
     @Override
-    public void consultarMultas(){
+    public void consultarMultas(ArrayList<Multa> listaMultas){
         
     }
     
