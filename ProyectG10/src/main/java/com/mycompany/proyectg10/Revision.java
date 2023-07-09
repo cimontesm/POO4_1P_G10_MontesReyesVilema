@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.proyectg10;
+import java.util.Date;
 
 /**
  *
@@ -11,9 +12,9 @@ package com.mycompany.proyectg10;
 public class Revision {
     private String codigo;
     private Cliente cliente;
-    private String fechaRevision;
+    private Date fechaRevision;
 
-    public Revision(String codigo, Cliente cliente, String fechaRevision) {
+    public Revision(String codigo, Cliente cliente, Date fechaRevision) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.fechaRevision = fechaRevision;
@@ -35,18 +36,17 @@ public class Revision {
         this.cliente = cliente;
     }
     
-    public String getFechaRevision() {
+    public Date getFechaRevision() {
         return fechaRevision;
     }
 
-    public void setFechaRevision(String fechaRevision) {
+    public void setFechaRevision(Date fechaRevision) {
         this.fechaRevision = fechaRevision;
     }
 
-  
-  
+    
     public String escribirRevision(){
-        return this.codigo+","+this.cedula+","+this.placa+","+this.fechaRevision;
+        return this.codigo+","+this.cliente+","+this.fechaRevision;
     }
 
     public double valorRevision(Multa multa){
