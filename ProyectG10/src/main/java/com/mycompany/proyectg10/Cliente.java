@@ -105,7 +105,7 @@ public class Cliente extends Usuario {
             for (String linea: datos){
                 String[] elementos = linea.trim().split(" ");
                 int posArchivo = Integer.parseInt(elementos[0].replace(".",""));
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); //COMO HACER EL FORMATO DATE
+                SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
                 Date fechaRevision = null;
                 try {
                     fechaRevision = formato.parse(elementos[1]);
@@ -126,7 +126,6 @@ public class Cliente extends Usuario {
                     System.out.println("Puede pagar su cita hasta 24 horas antes de la cita.");
                     System.out.println("De lo contrario la cita se cancelará.");
                 }
-                
             }
         } else {
             System.out.println("Usted tiene multas, no puede agendar cita para revisión.");
