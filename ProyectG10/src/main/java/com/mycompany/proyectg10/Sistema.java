@@ -4,13 +4,18 @@
  */
 package com.mycompany.proyectg10;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author cmontes
  */
-public class Sistema { //este es el main del programa
+public class Sistema {
     static ArrayList<Usuario> listaUsuarios;
     static ArrayList<Multa> listaMultas;
     static ArrayList<Vehiculo> listaVehiculos;
@@ -78,8 +83,29 @@ public class Sistema { //este es el main del programa
     public static void cargarListaMultas(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("multas.txt");
         for (String linea : datos){
-            String[] elementos = linea.trim().split(",");
-            
+            String[] elementosMult = linea.trim().split(",");
+            for (Usuario usuario : listaUsuarios){
+                if (usuario.getNumCedula().equals(elementosMult[0])){
+                    if (usuario instanceof Cliente){
+                        Cliente cl = (Cliente)usuario;
+                        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+                        Date fechaInfraccion = null;
+                        try {
+                            fechaInfraccion = formato.parse(elementosMult[4]);
+                        } catch (ParseException ex) {
+                            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        Date fechaNotificacion = null;
+                        try {
+                            fechaNotificacion = formato.parse(elementosMult[5]);
+                        } catch (ParseException ex) {
+                            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        Multa multa = new Multa(cl,elementosMult[2],Double.parseDouble(elementosMult[3]),fechaInfraccion,fechaNotificacion,Integer.parseInt(elementosMult[6]));
+                        listaMultas.add(multa);
+                    }
+                }
+            }
         }
     }
 }
