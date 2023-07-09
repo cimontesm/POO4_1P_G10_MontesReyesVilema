@@ -55,7 +55,7 @@ public class Operador extends Usuario {
             }
             
         }else{
-            System.out.println("Valor a pagar: "+ pago.ValorRevision() );
+//            System.out.println("Valor a pagar: "+ pago.ValorRevision() );
             System.out.println();
             System.out.println("Que modo de pago va a usar?");
             System.out.println("1. Efectivo");
