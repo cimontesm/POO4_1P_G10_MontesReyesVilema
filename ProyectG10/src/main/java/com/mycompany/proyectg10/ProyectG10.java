@@ -35,9 +35,12 @@ public class ProyectG10 {
             usuario = sc.nextLine();
             System.out.println("Contrasena: ");
             contrasena = sc.nextLine();
-            for(int i=1;i<archivo.size();i++){
+            System.out.println(archivo.size());
+            for(int i=0;i<archivo.size();i++){
                 String[] linea = archivo.get(i).split(",");
+                System.out.println(linea);
                 if(usuario.equals(linea[4])&&contrasena.equals(linea[5])){
+                    System.out.println("Datos válidos.");
                     cedula = linea[0];
                     nombres = linea[1].split(" ")[0];
                     apellidos = linea[1].split(" ")[1];
@@ -50,6 +53,7 @@ public class ProyectG10 {
                     break;
                 }
             }
+            break;
         }
         String[] datosUsuario = {cedula,nombres,apellidos,edad,correo,usuario,contrasena,perfil};
         return datosUsuario;

@@ -99,9 +99,9 @@ public class Operador extends Usuario {
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
         for(Usuario usuario: listaUsuarios){
             //Operador c = new Cliente(c.getNombre(),c.getApellidos(),c.getCorreo(),c.getEdad()c.getUsuario());
-            if(usuario.getTipoC){
+//            if(usuario.getTipoC){
                 
-            }
+            //}
         }
          
         
