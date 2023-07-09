@@ -63,16 +63,28 @@ public class Cliente extends Usuario {
     
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas){
+        ArrayList<Double> valoresMultas = new ArrayList<>();
+        double total = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese su cédula o número de placa: ");
         String dato = sc.nextLine();
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("                                        DETALLE DE MULTAS                                             ");
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
         for (Multa multa : listaMultas){
             if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
-                System.out.println("-------------------------------------------------------------------");
-                System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
                 multa.toString();
             }
         }
+        for (Multa m : listaMultas){
+            valoresMultas.add(m.getValorAPagar());
+        }
+        for (int i=0;i<valoresMultas.size();i++){
+            total += valoresMultas.get(i);
+        }
+        System.out.println("TOTAL A PAGAR: "+total);
+        System.out.println("PARA PAGAR PUEDE ACERCARSE A LA AGENCIA MÁS CERCANA.");
     }
     
     public void agendarRev(String numPlaca){
