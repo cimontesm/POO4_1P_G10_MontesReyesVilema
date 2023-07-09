@@ -10,14 +10,12 @@ package com.mycompany.proyectg10;
  */
 public class Revision {
     private String codigo;
-    private String cedula;
-    private String placa;
+    private Cliente cliente;
     private String fechaRevision;
 
-    public Revision(String codigo, String cedula, String placa, String fechaRevision) {
+    public Revision(String codigo, Cliente cliente, String fechaRevision) {
         this.codigo = codigo;
-        this.cedula = cedula;
-        this.placa = placa;
+        this.cliente = cliente;
         this.fechaRevision = fechaRevision;
     }
 
@@ -29,22 +27,14 @@ public class Revision {
         this.codigo = codigo;
     }
 
-    public String getCedula() {
-        return cedula;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
+    
     public String getFechaRevision() {
         return fechaRevision;
     }
