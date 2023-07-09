@@ -6,6 +6,12 @@ package com.mycompany.proyectg10;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Random;
 
 /**
  *
@@ -97,73 +103,29 @@ public class Cliente extends Usuario {
             sc.nextLine();
             for (String linea: datos){
                 String[] elementos = linea.trim().split(" ");
-//                int posArchivo = Integer.parseInt(elementos[0].replace(".",""));
-                
-                switch (num){
-                    case 1:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 2:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 3:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 4:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 5:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 6:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 7:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 8:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 9:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 10:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 11:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 12:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 13:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 14:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 15:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 16:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 17:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 18:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 19:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    case 20:
-                        System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
-                        break;
-                    default:
-                        System.out.println("No hay opcion con ese numero.");
-                        break;
+                int posArchivo = Integer.parseInt(elementos[0].replace(".",""));
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); //COMO HACER EL FORMATO DATE
+                Date fechaRevision = null;
+                try {
+                    fechaRevision = formato.parse(elementos[1]);
+                } catch (ParseException ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                if (num == posArchivo){
+                    System.out.println(getNombre()+", se ha agendado su cita para el "+fechaRevision+" a las "+elementos[2]);
+                    Random rd = new Random();
+                    int codigo = rd.nextInt(9000)+1000;
+                    Revision rev = new Revision(codigo,getNumCedula(),vehiculo.getNumPlaca(),fechaRevision);
+                    ManejoArchivos.EscribirArchivo("AgendaRevisiones.txt", rev.escribirRevision());
+                    int totalAPagar = 0;
+                    for (Multa mult : listaMultas){
+                        totalAPagar += rev.valorRevision(mult);
+                    }
+                    System.out.println("Valor a pagar: "+totalAPagar);
+                    System.out.println("Puede pagar su cita hasta 24 horas antes de la cita.");
+                    System.out.println("De lo contrario la cita se cancelará.");
+                }
+                
             }
         } else {
             System.out.println("Usted tiene multas, no puede agendar cita para revisión.");
