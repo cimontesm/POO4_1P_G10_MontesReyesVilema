@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Operador extends Usuario {
     private double sueldo;
 
-    public Operador(double sueldo, String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia) {
-        super(numCedula, nombre, edad, perfil, correo, contrasenia);
+    public Operador(double sueldo, String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario) {
+        super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
 
