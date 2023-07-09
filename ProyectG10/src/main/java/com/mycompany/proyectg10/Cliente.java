@@ -23,8 +23,8 @@ public class Cliente extends Usuario {
     private TipoCliente tipoC;
     private Vehiculo vehiculo;
     
-    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
-        super(numCedula,nombre,edad,perfil,correo,contrasenia);
+    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
+        super(numCedula,nombre,edad,perfil,correo,contrasenia, usuario);
         this.tarjetaCredito = tarjetaCredito;
         this.puntosLicencia = puntosLicencia;
         this.tipoC = tipoC;
@@ -79,6 +79,7 @@ public class Cliente extends Usuario {
         }
         System.out.println("TOTAL A PAGAR: "+total);
         System.out.println("PARA PAGAR PUEDE ACERCARSE A LA AGENCIA MÁS CERCANA.");
+        sc.close();
     }
     
     public void agendarRev(ArrayList<Multa> listaMultas){
@@ -104,7 +105,7 @@ public class Cliente extends Usuario {
             for (String linea: datos){
                 String[] elementos = linea.trim().split(" ");
                 int posArchivo = Integer.parseInt(elementos[0].replace(".",""));
-                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); //COMO HACER EL FORMATO DATE
+                SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
                 Date fechaRevision = null;
                 try {
                     fechaRevision = formato.parse(elementos[1]);
@@ -125,10 +126,10 @@ public class Cliente extends Usuario {
                     System.out.println("Puede pagar su cita hasta 24 horas antes de la cita.");
                     System.out.println("De lo contrario la cita se cancelará.");
                 }
-                
             }
         } else {
             System.out.println("Usted tiene multas, no puede agendar cita para revisión.");
         }
+        sc.close();
     }
 }

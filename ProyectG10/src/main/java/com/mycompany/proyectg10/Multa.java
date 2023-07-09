@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectg10;
 
+import java.util.Date;
+
 /**
  *
  * @author danie
@@ -12,11 +14,11 @@ public class Multa {
     private Cliente cliente;
     private String infraccion;
     private double valorAPagar;
-    private String fechaInfraccion;
-    private String fechaNotificacion;
+    private Date fechaInfraccion;
+    private Date fechaNotificacion;
     private int puntos;
 
-    public Multa(Cliente cliente, String infraccion, double valorAPagar, String fechaInfraccion, String fechaNotificacion, int puntos) {
+    public Multa(Cliente cliente, String infraccion, double valorAPagar, Date fechaInfraccion, Date fechaNotificacion, int puntos) {
         this.cliente = cliente;
         this.infraccion = infraccion;
         this.valorAPagar = valorAPagar;
@@ -49,19 +51,19 @@ public class Multa {
         this.valorAPagar = valorAPagar;
     }
 
-    public String getFechaInfraccion() {
+    public Date getFechaInfraccion() {
         return fechaInfraccion;
     }
 
-    public void setFechaInfraccion(String fechaInfraccion) {
+    public void setFechaInfraccion(Date fechaInfraccion) {
         this.fechaInfraccion = fechaInfraccion;
     }
 
-    public String getFechaNotificacion() {
+    public Date getFechaNotificacion() {
         return fechaNotificacion;
     }
 
-    public void setFechaNotificacion(String fechaNotificacion) {
+    public void setFechaNotificacion(Date fechaNotificacion) {
         this.fechaNotificacion = fechaNotificacion;
     }
     
