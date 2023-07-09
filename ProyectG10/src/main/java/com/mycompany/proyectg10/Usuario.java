@@ -15,14 +15,14 @@ public abstract class Usuario {
     private int edad;
     private TipoUsuario perfil;
     
-    public Usuario(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia) {
+    public Usuario(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario) {
         this.numCedula = numCedula;
         this.nombre = nombre;
         this.edad = edad;
         this.perfil = perfil;
         this.correo = correo;
         this.contrasenia = contrasenia;
-        
+        this.usuario = usuario;
     }
 
     public abstract void consultarMultas(ArrayList<Multa> listaMultas);
