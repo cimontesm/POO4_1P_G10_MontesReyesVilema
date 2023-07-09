@@ -11,23 +11,23 @@ import java.util.Date;
  * @author danie
  */
 public class Revision {
-    private String codigo;
+    private int codigo;
     private String cedula;
     private String placa;
     private Date fechaRevision;
 
-    public Revision(String codigo, String cedula, String placa, Date fechaRevision) {
+    public Revision(int codigo, String cedula, String placa, Date fechaRevision) {
         this.codigo = codigo;
         this.cedula = cedula;
         this.placa = placa;
         this.fechaRevision = fechaRevision;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
