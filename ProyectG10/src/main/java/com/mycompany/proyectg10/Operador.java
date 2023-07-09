@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class Operador extends Usuario {
     private double sueldo;
 
-    public Operador(double sueldo, String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
-        super(numCedula, nombre, apellidos, edad, perfil, correo, contrasenia);
+    public Operador(double sueldo, String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia) {
+        super(numCedula, nombre, edad, perfil, correo, contrasenia);
         this.sueldo = sueldo;
     }
 
@@ -132,12 +132,12 @@ public class Operador extends Usuario {
         for(Usuario usuario: listaUsuarios){
             Cliente op = (Cliente)usuario;
             if(op.getTipoC().equals("ESTANDAR") ){
-                System.out.println(op.getNombre()+op.getApellidos()+" | "+op.getTipoC().ESTANDAR+" | "+op.getNumCedula());
+                System.out.println(op.getNombre()+" | "+op.getTipoC().ESTANDAR+" | "+op.getNumCedula());
                 
             }else if(op.getTipoC().equals("ESTRELLA")){
-                System.out.println(op.getNombre()+op.getApellidos()+" | "+op.getTipoC().ESTRELLA+" | "+op.getNumCedula());
+                System.out.println(op.getNombre()+" | "+op.getTipoC().ESTRELLA+" | "+op.getNumCedula());
             }else{
-                System.out.println(op.getNombre()+op.getApellidos()+" | "+" | "+sueldo);
+                System.out.println(op.getNombre()+" | "+" | "+sueldo);
             }
         }
          
