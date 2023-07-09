@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author cmontes
  */
-public abstract class Cliente extends Usuario {
+public class Cliente extends Usuario {
     private int tarjetaCredito;
     private int puntosLicencia;
     private TipoCliente tipoC;
@@ -68,7 +68,9 @@ public abstract class Cliente extends Usuario {
         String dato = sc.nextLine();
         for (Multa multa : listaMultas){
             if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
-                
+                System.out.println("-------------------------------------------------------------------");
+                System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
+                multa.toString();
             }
         }
     }
