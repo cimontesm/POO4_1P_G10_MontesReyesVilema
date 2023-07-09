@@ -79,6 +79,7 @@ public class Cliente extends Usuario {
         }
         System.out.println("TOTAL A PAGAR: "+total);
         System.out.println("PARA PAGAR PUEDE ACERCARSE A LA AGENCIA MÁS CERCANA.");
+        sc.close();
     }
     
     public void agendarRev(ArrayList<Multa> listaMultas){
@@ -130,5 +131,6 @@ public class Cliente extends Usuario {
         } else {
             System.out.println("Usted tiene multas, no puede agendar cita para revisión.");
         }
+        sc.close();
     }
 }
