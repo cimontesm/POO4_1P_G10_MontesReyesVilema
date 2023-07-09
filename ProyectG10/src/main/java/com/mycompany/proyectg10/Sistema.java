@@ -19,7 +19,7 @@ public class Sistema { //este es el main del programa
         
     }
     
-    public void cargarListaUsuariosYVehiculos(){
+    public static void cargarListaUsuariosYVehiculos(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("usuarios.txt");
         for (String linea: datos){
             String[] elementos = linea.trim().split(",");
@@ -75,7 +75,7 @@ public class Sistema { //este es el main del programa
         }
     }
     
-    public void cargarListaMultas(){
+    public static void cargarListaMultas(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("multas.txt");
         for (String linea : datos){
             String[] elementos = linea.trim().split(",");
