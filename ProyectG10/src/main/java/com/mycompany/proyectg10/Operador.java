@@ -48,14 +48,14 @@ public class Operador extends Usuario {
             int modoPago = sc.nextInt();
         
             if(modoPago==2){
-                pago.getValorFinal=pago.getValorPagar*0.1;
-                System.out.println(pago.getValorPagar);
+                pago.getValorFinal()=pago*1.1;
+                System.out.println(pago);
             }else{
                 System.out.println(pago);
             }
             
         }else{
-            System.out.println("Valor a pagar: "+ pago.getValorRevision() );
+            System.out.println("Valor a pagar: "+ pago.ValorRevision() );
             System.out.println();
             System.out.println("Que modo de pago va a usar?");
             System.out.println("1. Efectivo");
@@ -65,7 +65,7 @@ public class Operador extends Usuario {
             int modoPago = sc.nextInt();
         
             if(modoPago==2){
-                pago.getValorRevision=pago.getValorRevision*0.1;
+                pago=pago*1.1;
                 System.out.println(pago.getValorRevision);
             }else{
                 System.out.println(pago);
