@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyectg10;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Operador extends Usuario {
     
     
     
-    public void registrarPago(){
+    public void registrarPago(ArrayList<RegistroPago> listaPagos){
         Scanner sc = new Scanner(System.in);
         
         System.out.println("----------------");
@@ -32,20 +33,47 @@ public class Operador extends Usuario {
         System.out.println("Que desea pagar?");
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
+        System.out.println();
         System.out.println("Elija una opcion: ");
         int tipoP=sc.nextInt();
-        if(tipoP==1){
-            System.out.println("");
+        for(RegistroPago pago: listaPagos){
+           if(tipoP==1){
+            System.out.println("Valor a pagar: "+pago.getValorPagar() );
+            System.out.println();
+            System.out.println("Que modo de pago va a usar?");
+            System.out.println("1. Efectivo");
+            System.out.println("2. Tarjeta de crédito");
+            System.out.println();
+            System.out.println("Elija una opcion:  ");
+            int modoPago = sc.nextInt();
+        
+            if(modoPago==2){
+                pago.getValorFinal=pago.getValorPagar*0.1;
+                System.out.println(pago.getValorPagar);
+            }else{
+                System.out.println(pago);
+            }
             
         }else{
+            System.out.println("Valor a pagar: "+ pago.getValorRevision() );
             System.out.println();
+            System.out.println("Que modo de pago va a usar?");
+            System.out.println("1. Efectivo");
+            System.out.println("2. Tarjeta de crédito");
+            System.out.println();
+            System.out.println("Elija una opcion:  ");
+            int modoPago = sc.nextInt();
+        
+            if(modoPago==2){
+                pago.getValorRevision=pago.getValorRevision*0.1;
+                System.out.println(pago.getValorRevision);
+            }else{
+                System.out.println(pago);
+            }
+           } 
         }
-            
-            
         
-        System.out.println("Valor a pagar: ");//+el valor a pagar que sale de multas
-
-        
+      
         System.out.println("Que modo de pago va a usar?");
         System.out.println("1. Efectivo");
         System.out.println("2. Tarjeta de crédito");
@@ -91,16 +119,25 @@ public class Operador extends Usuario {
         System.out.println("Ingrese el mes a consultar: ");
         String mes= sc.nextLine();
         System.out.println("Conductores Multados");
-        //SimpleDateFormat fecha= new SimpleDateFormat("dd-mm-yyy");
-        System.out.println();
-        
+        for(Multa multa: listaMultas){
+            if(mes.equals(mes)){
+                System.out.println("-------------------------------------------------------------------");
+                System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
+                multa.toString();
+            }
+        }        
     }
     
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
         for(Usuario usuario: listaUsuarios){
-            //Operador c = new Cliente(c.getNombre(),c.getApellidos(),c.getCorreo(),c.getEdad()c.getUsuario());
-            if(usuario.getTipoC){
+            Cliente op = (Cliente)usuario;
+            if(op.getTipoC().equals("ESTANDAR") ){
+                System.out.println(op.getNombre()+op.getApellidos()+" | "+op.getTipoC().ESTANDAR+" | "+op.getNumCedula());
                 
+            }else if(op.getTipoC().equals("ESTRELLA")){
+                System.out.println(op.getNombre()+op.getApellidos()+" | "+op.getTipoC().ESTRELLA+" | "+op.getNumCedula());
+            }else{
+                System.out.println(op.getNombre()+op.getApellidos()+" | "+" | "+sueldo);
             }
         }
          
