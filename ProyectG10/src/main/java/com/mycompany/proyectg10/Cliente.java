@@ -23,8 +23,8 @@ public class Cliente extends Usuario {
     private TipoCliente tipoC;
     private Vehiculo vehiculo;
     
-    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
-        super(numCedula,nombre,edad,perfil,correo,contrasenia);
+    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
+        super(numCedula,nombre,edad,perfil,correo,contrasenia, usuario);
         this.tarjetaCredito = tarjetaCredito;
         this.puntosLicencia = puntosLicencia;
         this.tipoC = tipoC;
