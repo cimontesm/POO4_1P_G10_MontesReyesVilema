@@ -14,6 +14,9 @@ public class ProyectG10 {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String[] datosUsuario = ProyectG10.accederSistema();
+        
+        
+        
     }
     
     
@@ -29,19 +32,15 @@ public class ProyectG10 {
         Scanner sc = new Scanner(System.in);
         boolean x = true;
         ArrayList<String> archivo = ManejoArchivos.LeeFichero("usuarios.txt");
-        System.out.println(archivo);
         System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
         while(x!=false){
             System.out.println("Usuario: ");
             usuario = sc.nextLine();
             System.out.println("Contrasena: ");
             contrasena = sc.nextLine();
-            System.out.println(archivo.size());
             for(int i=0;i<archivo.size();i++){
                 String[] linea = archivo.get(i).split(",");
-                System.out.println(linea);
                 if(usuario.equals(linea[4])&&contrasena.equals(linea[5])){
-                    System.out.println("Datos válidos.");
                     cedula = linea[0];
                     nombres = linea[1].split(" ")[0];
                     apellidos = linea[1].split(" ")[1];
@@ -51,6 +50,9 @@ public class ProyectG10 {
                     contrasena = linea[5];
                     perfil = linea[6];
                     x = false;
+                    break;
+                }else{
+                    System.out.println("No tiene acceso.");
                     break;
                 }
             }
