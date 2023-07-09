@@ -29,6 +29,7 @@ public class ProyectG10 {
         Scanner sc = new Scanner(System.in);
         boolean x = true;
         ArrayList<String> archivo = ManejoArchivos.LeeFichero("usuarios.txt");
+        System.out.println(archivo);
         System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
         while(x!=false){
             System.out.println("Usuario: ");

@@ -59,5 +59,15 @@ public class Revision {
         return this.codigo+","+this.cedula+","+this.placa+","+this.fechaRevision;
     }
 
+    public double valorRevision(Multa multa){
+        double base = 150;
+        double valorAPagar = 0;
+        if(multa.getCliente().getTipoC()==TipoCliente.ESTANDAR){
+            valorAPagar = base+(multa.getPuntos()*10);
+        }else{
+            valorAPagar = base-(base*0.20);
+        }
+        return valorAPagar;
+    }
     
 }
