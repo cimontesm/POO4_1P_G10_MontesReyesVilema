@@ -11,14 +11,13 @@ import java.util.ArrayList;
  * @author cmontes
  */
 public abstract class Usuario {
-    private String numCedula, nombre, apellidos, correo, contrasenia, usuario;
+    private String numCedula, nombre, correo, contrasenia, usuario;
     private int edad;
     private TipoUsuario perfil;
     
-    public Usuario(String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
+    public Usuario(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia) {
         this.numCedula = numCedula;
         this.nombre = nombre;
-        this.apellidos = apellidos;
         this.edad = edad;
         this.perfil = perfil;
         this.correo = correo;
@@ -45,15 +44,7 @@ public abstract class Usuario {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
+    
     public int getEdad() {
         return edad;
     }
