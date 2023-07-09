@@ -11,16 +11,18 @@ package com.mycompany.proyectg10;
 public class Vehiculo {
 
     private String numPlaca;
-    private int cedula;
+    private String duenio;
     private String marca;
+    private String modelo;
     private int anio;
     private String chasis;
     private String color;
 
-    public Vehiculo(String numPlaca, int cedula, String marca, int anio, String chasis, String color) {
+    public Vehiculo(String numPlaca, String duenio, String marca, String modelo, int anio, String chasis, String color) {
         this.numPlaca = numPlaca;
-        this.cedula = cedula;
+        this.duenio = duenio;
         this.marca = marca;
+        this.modelo = modelo;
         this.anio = anio;
         this.chasis = chasis;
         this.color = color;
@@ -34,20 +36,28 @@ public class Vehiculo {
         this.numPlaca = numPlaca;
     }
 
-    public int getCedula() {
-        return cedula;
+    public String getDuenio() {
+        return duenio;
     }
 
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
+    public void setDuenio(String duenio) {
+        this.duenio = duenio;
     }
-
+    
     public String getMarca() {
         return marca;
     }
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+    
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public int getAnio() {
