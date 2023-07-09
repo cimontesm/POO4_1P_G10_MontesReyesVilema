@@ -24,7 +24,16 @@ public class Sistema {
         
     }
     
-    public static void cargarListaUsuariosYVehiculos(){
+    public static void cargarListaVehiculos(){
+        ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("Vehiculos.txt");
+        for (String lineaVehi : datosVehi){
+            String[] elementosVehi = lineaVehi.trim().split(",");
+            Vehiculo vehiculo = new Vehiculo(elementosVehi[1],elementosVehi[0],elementosVehi[2],elementosVehi[3],Integer.parseInt(elementosVehi[4]),elementosVehi[5],elementosVehi[6]);
+            listaVehiculos.add(vehiculo);
+        }
+    }
+    
+    public static void cargarListaUsuarios(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("usuarios.txt");
         for (String linea: datos){
             String[] elementos = linea.trim().split(",");
@@ -45,12 +54,8 @@ public class Sistema {
                     for (String lineaCl : datosCl){
                         String[] elementosCl = lineaCl.trim().split(",");
                         if (elementos[0].equals(elementosCl[0])){
-                            ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("Vehiculos.txt");
-                            for (String lineaVehi : datosVehi){
-                                String[] elementosVehi = lineaVehi.trim().split(",");
-                                if (elementosCl[0].equals(elementosVehi[0])){
-                                    Vehiculo vehiculo = new Vehiculo(elementosVehi[1],elementosVehi[0],elementosVehi[2],elementosVehi[3],Integer.parseInt(elementosVehi[4]),elementosVehi[5],elementosVehi[6]);
-                                    listaVehiculos.add(vehiculo);
+                            for (Vehiculo vehiculo : listaVehiculos){
+                                if (elementosCl[0].equals(vehiculo.getDuenio())){
                                     Usuario us2 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],Integer.parseInt(elementosCl[1]),Integer.parseInt(elementosCl[2]),TipoCliente.ESTANDAR,vehiculo);
                                     listaUsuarios.add(us2);
                                 }
@@ -63,14 +68,10 @@ public class Sistema {
                     for (String lineaCl2 : datosCl2){
                         String[] elementosCl2 = lineaCl2.trim().split(",");
                         if (elementos[0].equals(elementosCl2[0])){
-                            ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("Vehiculos.txt");
-                            for (String lineaVehi : datosVehi){
-                                String[] elementosVehi = lineaVehi.trim().split(",");
-                                if (elementosCl2[0].equals(elementosVehi[0])){
-                                    Vehiculo vehiculo = new Vehiculo(elementosVehi[1],elementosVehi[0],elementosVehi[2],elementosVehi[3],Integer.parseInt(elementosVehi[4]),elementosVehi[5],elementosVehi[6]);
-                                    listaVehiculos.add(vehiculo);
-                                    Usuario us2 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],Integer.parseInt(elementosCl2[1]),Integer.parseInt(elementosCl2[2]),TipoCliente.ESTRELLA,vehiculo);
-                                    listaUsuarios.add(us2);
+                            for (Vehiculo vehiculo : listaVehiculos){
+                                if (elementosCl2[0].equals(vehiculo.getDuenio())){
+                                    Usuario us3 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],Integer.parseInt(elementosCl2[1]),Integer.parseInt(elementosCl2[2]),TipoCliente.ESTRELLA,vehiculo);
+                                    listaUsuarios.add(us3);
                                 }
                             }
                         }
