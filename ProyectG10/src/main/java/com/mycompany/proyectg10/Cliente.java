@@ -68,7 +68,9 @@ public class Cliente extends Usuario {
         String dato = sc.nextLine();
         for (Multa multa : listaMultas){
             if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
-                
+                System.out.println("-------------------------------------------------------------------");
+                System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
+                multa.toString();
             }
         }
     }
