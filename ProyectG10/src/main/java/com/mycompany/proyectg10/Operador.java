@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author cmontes
  */
-public abstract class Operador extends Usuario{
+public class Operador extends Usuario {
     private double sueldo;
 
     public Operador(double sueldo, String numCedula, String nombre, String apellidos, int edad, TipoUsuario perfil, String correo, String contrasenia) {
@@ -97,7 +97,13 @@ public abstract class Operador extends Usuario{
     }
     
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios){
-        System.out.println(getNombre()+" " + getApellidos()+" | "+" | "+sueldo); 
+        for(Usuario usuario: listaUsuarios){
+            //Operador c = new Cliente(c.getNombre(),c.getApellidos(),c.getCorreo(),c.getEdad()c.getUsuario());
+            if(usuario.getTipoC){
+                
+            }
+        }
+         
         
     }
     
