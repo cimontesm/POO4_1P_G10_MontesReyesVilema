@@ -32,7 +32,7 @@ public class Operador extends Usuario {
     }
 
     public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMulta) {
-//        ArrayList<Multa> pagos = new ArrayList<>();
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("----------------");
