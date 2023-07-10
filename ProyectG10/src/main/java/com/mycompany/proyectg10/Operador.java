@@ -33,11 +33,13 @@ public class Operador extends Usuario {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
-      /**
+
+    /**
      * Metodo para registrar el pago ya sea multa o revision
+     *
      * @param listaUsuarios ArrayList<Usuario>
      * @param listaMultas ArrayList<Multa>
-     * 
+     *
      */
     public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMultas) {
         Scanner sc = new Scanner(System.in);
@@ -69,79 +71,69 @@ public class Operador extends Usuario {
                 }
                 valorAPagarRev += RegistroPago.valorMulta(multasCliente);
             }
-        }
-        System.out.println();
-        System.out.println("Que modo de pago va a usar?");
-        System.out.println("1. Efectivo");
-        System.out.println("2. Tarjeta de crédito");
-        System.out.println();
-        System.out.println("Elija una opcion:  ");
-        int modoPago = sc.nextInt();
-        sc.nextLine();
-    }
 
-    System.out.println (
+            System.out.println();
+            System.out.println("Que modo de pago va a usar?");
+            System.out.println("1. Efectivo");
+            System.out.println("2. Tarjeta de crédito");
+            System.out.println();
+            System.out.println("Elija una opcion:  ");
+            int modoPago = sc.nextInt();
+            sc.nextLine();
 
-    "Que modo de pago va a usar?");
-    System.out.println (
+            System.out.println("Que modo de pago va a usar?");
+            System.out.println("1. Efectivo");
+            System.out.println("2. Tarjeta de crédito");
+            System.out.println();
 
-    "1. Efectivo");
-    System.out.println (
+            System.out.println("Elija una opcion:  ");
+            int modoPago2 = sc.nextInt();
 
-    "2. Tarjeta de crédito");
-    System.out.println ();
+            sc.nextLine();
+            switch (modoPago2) {
+                case 1:
+                    System.out.println("Valor a pagar: " + valorAPagarRev);
+                    break;
+                case 2:
+                    double pagoF = 1.1 * valorAPagarRev;
+                    System.out.println("Valor a pagar: " + pagoF);
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+            }
 
-    System.out.println (
-    "Elija una opcion:  ");
-                int modoPago2 = sc.nextInt();
-
-    sc.nextLine ();
-    switch (modoPago2) {
-        case 1:
-            System.out.println("Valor a pagar: " + valorAPagarRev);
-            break;
-        case 2:
-            double pagoF = 1.1 * valorAPagarRev;
-            System.out.println("Valor a pagar: " + pagoF);
-            break;
-        default:
-            System.out.println("Opción inválida");
-            break;
-    }
-    break;
-            default
-
-    :
-    System.out.println (
-    "Opción inválida");
-
-break;
-        }
-        sc.nextLine();
-        switch (tipoP){
-            case 1:
-                System.out.println("Valor a pagar: "+valorAPagarMult);
+            sc.nextLine();
+            switch (tipoP) {
+                case 1:
+                    System.out.println("Valor a pagar: " + valorAPagarMult);
+            }
         }
     }
+
     /**
      * Metodo getter para consultar el sueldo del Operador
+     *
      * @return sueldo del Operador
      */
     public double getSueldo() {
         return sueldo;
     }
+
     /**
      * Metodo getter para consultar el sueldo del Operador
+     *
      * @return sueldo del Operador
      */
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+
     /**
      * Método sobrescrito
      */
     @Override
-public void consultarMultas(ArrayList<Multa> listaMultas) {
+    public void consultarMultas(ArrayList<Multa> listaMultas) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el mes a consultar: ");
@@ -155,8 +147,10 @@ public void consultarMultas(ArrayList<Multa> listaMultas) {
             }
         }
     }
-     /**
+
+    /**
      * Método para poder consultar los usuarios
+     *
      * @param listaUsuarios ArrayList<Usuario>
      */
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
