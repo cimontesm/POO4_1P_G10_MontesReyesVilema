@@ -130,7 +130,6 @@ public class Sistema {
                     System.out.println("Ingreso exitoso.");
                     usuarioRetorno = usuario;
                     x = false;
-                    break;
                 }
             }
             System.out.println("Datos incorrectos.");
