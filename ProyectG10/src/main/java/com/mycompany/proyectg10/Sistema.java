@@ -136,4 +136,32 @@ public class Sistema {
         }
         return usuarioRetorno;
     }
+    
+    public static void mostrarMenuCliente(Usuario usuario){
+        Scanner sc = new Scanner(System.in);
+        Cliente cliente;
+        if (usuario instanceof Cliente){
+            cliente = (Cliente)usuario;
+        }
+        System.out.println("1. Consultar Multas");
+        System.out.println("2. Agendar Revisión técnica");
+        System.out.println("3. Salir");
+        int opcion = 0;
+        while (opcion!=3){
+            System.out.print("Ingrese una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion){
+                case 1:
+                    cliente.consultarMultas(listaMultas);
+                    break;
+                case 2:
+                    cliente.agendarRev(listaMultas);
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+            }
+        }
+    }
 }
