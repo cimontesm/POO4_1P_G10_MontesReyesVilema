@@ -119,7 +119,7 @@ public class Cliente extends Usuario {
                     Revision rev = new Revision(codigo,getNumCedula(),vehiculo.getNumPlaca(),fechaRevision);
                     ManejoArchivos.EscribirArchivo("AgendaRevisiones.txt", rev.escribirRevision());
                     int totalAPagar = 0;
-                    for (Multa mult : listaMultas){
+                    for (Multa mult : multasCliente){
                         totalAPagar += rev.valorRevision(mult);
                     }
                     System.out.println("Valor a pagar: "+totalAPagar);

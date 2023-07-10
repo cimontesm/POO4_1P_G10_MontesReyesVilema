@@ -10,12 +10,22 @@ import java.util.Scanner;
 
 /**
  *
- * @author cmontes
+ * Clase operador nos permite registrar los pagos, consultar las multas y los usuarios.
  */
 public class Operador extends Usuario {
 
     private double sueldo;
-
+  /**
+     * Metodo constructor de la clase Usuario
+     * @param sueldo double
+     * @param numCedula String
+     * @param nombre String
+     * @param edad int
+     * @param perfil TipoUsuario
+     * @param correo String
+     * @param contrasenia String
+     * @param usuario String
+     */
     public Operador(double sueldo, String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario) {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
@@ -113,15 +123,23 @@ public class Operador extends Usuario {
         }
 
     }
-
+    /**
+     * Metodo getter para consultar el sueldo del Operador
+     * @return sueldo del Operador
+     */
     public double getSueldo() {
         return sueldo;
     }
-
+    /**
+     * Metodo getter para consultar el sueldo del Operador
+     * @return sueldo del Operador
+     */
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
-
+    /**
+     * Método sobrescrito
+     */
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas) {
 
@@ -137,7 +155,10 @@ public class Operador extends Usuario {
             }
         }
     }
-
+     /**
+     * Método para poder consultar los usuarios
+     * @param listaUsuarios ArrayList<Usuario>
+     */
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
             Cliente op = (Cliente) usuario;

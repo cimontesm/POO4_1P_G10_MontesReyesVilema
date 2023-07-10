@@ -26,7 +26,15 @@ public class Sistema {
         cargarListaUsuarios();
         cargarListaMultas();
         
+        Usuario usuario = inciarSesion();
         
+        if (usuario instanceof Cliente){
+            Cliente cliente = (Cliente)usuario;
+            mostrarMenuCliente(cliente);
+        } else if (usuario instanceof Operador){
+            Operador operador = (Operador)usuario;
+            mostrarMenuOperador(operador);
+        }
     }
     
     public static void cargarListaVehiculos(){
@@ -126,8 +134,8 @@ public class Sistema {
             String usuarioI = sc.nextLine();
             System.out.print("Contrasena: ");
             String contrasenaI = sc.nextLine();
-            for(Usuario usuario:listaUsuarios){
-                if(usuario.getUsuario().equals(usuario)&&usuario.getContrasenia().equals(contrasenaI)){
+            for(Usuario usuario : listaUsuarios){
+                if(usuario.getUsuario().equals(usuarioI) && usuario.getContrasenia().equals(contrasenaI)){
                     System.out.println("Ingreso exitoso.");
                     usuarioRetorno = usuario;
                     x = false;
@@ -136,5 +144,57 @@ public class Sistema {
             System.out.println("Datos incorrectos.");
         }
         return usuarioRetorno;
+    }
+    
+    public static void mostrarMenuCliente(Cliente cliente){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Consultar Multas");
+        System.out.println("2. Agendar Revisión técnica");
+        System.out.println("3. Salir");
+        int opcion = 0;
+        while (opcion!=3){
+            System.out.print("Ingrese una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion){
+                case 1:
+                    cliente.consultarMultas(listaMultas);
+                    break;
+                case 2:
+                    cliente.agendarRev(listaMultas);
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+            }
+        } sc.close();
+    }
+    
+    public static void mostrarMenuOperador(Operador operador){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Registrar pagos");
+        System.out.println("2. Consultar multas clientes");
+        System.out.println("3. Consultar usuarios");
+        System.out.println("4. Salir");
+        int opcion = 0;
+        while (opcion!=4){
+            System.out.print("Ingrese una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion){
+                case 1:
+                    operador.registrarPago(listaPagos);
+                    break;
+                case 2:
+                    operador.consultarMultas(listaMultas);
+                    break;
+                case 3:
+                    operador.consultarUsuarios(listaUsuarios);
+                    break;
+                default:
+                    System.out.println("Opción inválida");
+                    break;
+            }
+        } sc.close();
     }
 }
