@@ -17,76 +17,116 @@ public class RegistroPago {
     private double valorPagar;
     private TipoPago modoPago;
     private double valorFinal;
-    private String fechaPago;
     private String razonPago;
+     /**
+      * Constructor de RegistroPago
+     * @param cliente Cliente
+     * @param codPago int
+     * @param valorPagar double
+     * @param modoPago TipoPago
+     * @param valorFinal double
+     * @param razonPago String
+     */
 
-    public RegistroPago(Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String fechaPago, String razonPago) {
+    public RegistroPago(Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago) {
         this.cliente = cliente;
         this.codPago = codPago;
         this.valorPagar = valorPagar;
         this.modoPago = modoPago;
         this.valorFinal = valorFinal;
-        this.fechaPago = fechaPago;
         this.razonPago = razonPago;
     }
-
+    /**
+     * Metodo getter para consultar cliente
+     * @return cliente
+     */
     public Cliente getCliente() {
         return cliente;
     }
-
+    /**
+     * Metodo setter para establecer cliente
+     * @param cliente Cliente
+     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
+    /**
+     * Metodo getter para consultar codPago
+     * @return codPago
+     */
     public int getCodPago() {
         return codPago;
     }
-
+    /**
+     * Metodo setter para establecer codPago
+     * @param codPago int 
+     */
     public void setCodPago(int codPago) {
         this.codPago = codPago;
     }
-
+    /**
+     * Metodo getter para consultar valorAPagar
+     * @return valorAPagar
+     */
     public double getValorPagar() {
         return valorPagar;
     }
-
+    /**
+     * Metodo setter para establecer valorPagar 
+     * @param valorPagar double
+     */
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
     }
-
+    /**
+     * Metodo getter para consultar modoPago
+     * @return modoPago
+     */
     public TipoPago getModoPago() {
         return modoPago;
     }
-
+    /**
+     * Metodo setter para establecer modoPago
+     * @param modoPago TipoPago
+     */
     public void setModoPago(TipoPago modoPago) {
         this.modoPago = modoPago;
     }
-
+    /**
+     * Metodo getter para consultar valorFinal
+     * @return valorFinal
+     */
     public double getValorFinal() {
         return valorFinal;
     }
-
+    /**
+     * Metodo setter para establecer valorFinal
+     * @param valorFinal double
+     */
     public void setValorFinal(double valorFinal) {
         this.valorFinal = valorFinal;
     }
 
-    public String getFechaPago() {
-        return fechaPago;
-    }
-
-    public void setFechaPago(String fechaPago) {
-        this.fechaPago = fechaPago;
-    }
-
+    /**
+     * Metodo getter para consultar razonPago
+     * @return razonPago
+     */
     public String getRazonPago() {
         return razonPago;
     }
-
+    /**
+     * Metodo setter para establecer razonPago
+     * @param razonPago String
+     */
     public void setRazonPago(String razonPago) {
         this.razonPago = razonPago;
     }
-
-    public double valorRevision(Multa multa) {
+    /**
+     * Metodo para verificar el valor de la revision
+     * @param multa Multa
+     * @return valorAPagar double
+     */
+    public static double valorRevision(Multa multa) {
         double base = 150;
         double valorAPagar = 0;
         if (multa.getCliente().getTipoC().equals(TipoCliente.ESTANDAR)) {
@@ -96,8 +136,14 @@ public class RegistroPago {
         }
         return valorAPagar;
     }
-
-    public double valorMulta(ArrayList<Multa> listaMultas) {
+    
+    /**
+     * Metodo para verificar valorMulta
+     * @param listaMultas ArrayList<Multa>
+     * @return double con el total a pagar
+     */
+    
+    public static double valorMulta(ArrayList<Multa> listaMultas) {
         ArrayList<Double> valoresMultas = new ArrayList<>();
         double total = 0;
         for (Multa m : listaMultas) {

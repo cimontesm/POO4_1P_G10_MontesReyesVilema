@@ -5,8 +5,8 @@
 package com.mycompany.proyectg10;
 
 /**
- *
- * @author danie
+ * Clase enum para definir los tipos de Pago
+ * 
  */
 public enum TipoPago {
     EFECTIVO,TARJETA

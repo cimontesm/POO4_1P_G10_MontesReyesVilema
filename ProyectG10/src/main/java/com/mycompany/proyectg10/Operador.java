@@ -16,7 +16,7 @@ public class Operador extends Usuario {
 
     private double sueldo;
   /**
-     * Metodo constructor de la clase Usuario
+     * Metodo constructor de la clase Operador
      * @param sueldo double
      * @param numCedula String
      * @param nombre String
@@ -30,28 +30,38 @@ public class Operador extends Usuario {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
-
-    public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMulta) {
-
+    
+    public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMultas) {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("----------------");
-        System.out.println("REGISTRAR PAGOS");
-        System.out.println("----------------");
+        ArrayList<Multa> multasCliente = new ArrayList<>();
         
-        System.out.println("\n Ingrese su numero de cedula: ");
-        String cedula= sc.nextLine();
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("                                            REGISTRAR PAGOS                                           ");
+        System.out.println("------------------------------------------------------------------------------------------------------");
         
-
         System.out.println("Que desea pagar?");
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
         System.out.println();
         System.out.println("Elija una opcion: ");
         int tipoP = sc.nextInt();
-        for (RegistroPago pago : listaMultas) {
-            if (tipoP == 1) {
-                System.out.println("Valor a pagar: " + pago.valorMulta(listaMultas));
+        double valorAPagarMult = 0;
+        double valorAPagarRev = 0;
+        System.out.print("Ingrese el número de cédula del cliente: ");
+        String cedulaCl = sc.nextLine();
+        for (Usuario usuario : listaUsuarios){
+            if (cedulaCl.equals(usuario.numCedula)){
+                for (Multa multa : listaMultas){
+                    if (cedulaCl.equals(multa.getCliente().getNumCedula())){
+                        multasCliente.add(multa);
+                    }
+                }
+                for (Multa mult : multasCliente){
+                    valorAPagarMult += RegistroPago.valorRevision(mult);
+                }
+                valorAPagarRev += RegistroPago.valorMulta(multasCliente);
+            }
+        }
                 System.out.println();
                 System.out.println("Que modo de pago va a usar?");
                 System.out.println("1. Efectivo");
@@ -60,68 +70,36 @@ public class Operador extends Usuario {
                 System.out.println("Elija una opcion:  ");
                 int modoPago = sc.nextInt();
                 sc.nextLine();
-
-                if (modoPago == 2) {
-                    double pagoF = 1.1 * pago.valorMulta(listaMultas);
-                    System.out.println(pagoF);
-                    ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
-                } else {
-                    System.out.println(pago.valorMulta(listaMultas));
-                    ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
-
-                }
-
-            } else {
-                for (Multa multa : listaMultas) {
-
-                    System.out.println("Valor a pagar: " + pago.valorRevision(multa));
-                    System.out.println();
-                    System.out.println("Que modo de pago va a usar?");
-                    System.out.println("1. Efectivo");
-                    System.out.println("2. Tarjeta de crédito");
-                    System.out.println();
-                    System.out.println("Elija una opcion:  ");
-                    int modoPago = sc.nextInt();
-
-                    if (modoPago == 2) {
-                        double pagoF = pago.valorRevision(multa) * 1.1;
-                        System.out.println(pagoF);
-                        ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
-
-                    } else {
-
-                        System.out.println(pago.valorRevision(multa));
-                        ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
-
-                    }
-
                 }
                 System.out.println("Que modo de pago va a usar?");
                 System.out.println("1. Efectivo");
                 System.out.println("2. Tarjeta de crédito");
+                System.out.println();
                 System.out.println("Elija una opcion:  ");
-                int modoPago = sc.nextInt();
-                for (Multa multa : listaMultas) {
-                    if (modoPago == 2) {
-                        double valorF = 1.1 * pago.valorRevision(multa);
-                        System.out.println(valorF);
-                    } else {
-                        System.out.println(pago.valorRevision(multa));
-                    }
+                int modoPago2 = sc.nextInt();
+                sc.nextLine();
+                switch (modoPago2){
+                    case 1:
+                        System.out.println("Valor a pagar: "+valorAPagarRev);
+                        break;
+                    case 2:
+                        double pagoF = 1.1 * valorAPagarRev;
+                        System.out.println("Valor a pagar: "+pagoF);
+                        break;
+                    default:
+                        System.out.println("Opción inválida");
+                        break;
                 }
-            }
+                break;
+            default:
+                System.out.println("Opción inválida");
+                break;
         }
-
-        System.out.println("Desea proceder con el pago? ");
-        System.out.println("1. Si ");
-        System.out.println("2. No ");
-        System.out.println("Elija una opcion: ");
-        int proceder = sc.nextInt();
-        if (proceder == 1) {
-            System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
-
+        sc.nextLine();
+        switch (tipoP){
+            case 1:
+                System.out.println("Valor a pagar: "+valorAPagarMult);
         }
-
     }
     /**
      * Metodo getter para consultar el sueldo del Operador

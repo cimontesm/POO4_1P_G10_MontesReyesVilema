@@ -5,8 +5,8 @@
 package com.mycompany.proyectg10;
 
 /**
- *
- * @author cmontes
+ * Clase enum para definir los tipos de Cliente
+ * 
  */
 public enum TipoCliente {
     ESTANDAR, ESTRELLA;
