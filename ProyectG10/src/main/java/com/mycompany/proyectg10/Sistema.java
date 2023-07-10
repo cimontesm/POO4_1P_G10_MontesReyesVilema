@@ -114,18 +114,27 @@ public class Sistema {
         }
     }
     
-    public static void inciarSesion(){
+    public static Usuario inciarSesion(){
         Scanner sc = new Scanner(System.in);
         System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
-        System.out.println("Usuario: ");
-        String usuario = sc.nextLine();
-        System.out.println("Contrasena: ");
-        String contrasena = sc.nextLine();
-        for(Usuario usuarios:listaUsuarios){
-            if(usuarios.getUsuario().equals(usuario)||usuarios.getContrasenia().equals(constrasena)){
-                
-            }
-        }
         
+        Usuario usuarioRetorno = null;
+        boolean x = true;
+        while(x!=false){
+            System.out.print("Usuario: ");
+            String usuarioI = sc.nextLine();
+            System.out.print("Contrasena: ");
+            String contrasenaI = sc.nextLine();
+            for(Usuario usuario:listaUsuarios){
+                if(usuario.getUsuario().equals(usuario)&&usuario.getContrasenia().equals(contrasenaI)){
+                    System.out.println("Ingreso exitoso.");
+                    usuarioRetorno = usuario;
+                    x = false;
+                    break;
+                }
+            }
+            System.out.println("Datos incorrectos.");
+        }
+        return usuarioRetorno;
     }
 }
