@@ -10,13 +10,16 @@ import java.util.Scanner;
 
 /**
  *
- * Clase operador nos permite registrar los pagos, consultar las multas y los usuarios.
+ * Clase operador nos permite registrar los pagos, consultar las multas y los
+ * usuarios.
  */
 public class Operador extends Usuario {
 
     private double sueldo;
-  /**
+
+    /**
      * Metodo constructor de la clase Operador
+     *
      * @param sueldo double
      * @param numCedula String
      * @param nombre String
@@ -30,15 +33,15 @@ public class Operador extends Usuario {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
-    
+
     public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMultas) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Multa> multasCliente = new ArrayList<>();
-        
+
         System.out.println("------------------------------------------------------------------------------------------------------");
         System.out.println("                                            REGISTRAR PAGOS                                           ");
         System.out.println("------------------------------------------------------------------------------------------------------");
-        
+
         System.out.println("Que desea pagar?");
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
@@ -49,51 +52,65 @@ public class Operador extends Usuario {
         double valorAPagarRev = 0;
         System.out.print("Ingrese el número de cédula del cliente: ");
         String cedulaCl = sc.nextLine();
-        for (Usuario usuario : listaUsuarios){
-            if (cedulaCl.equals(usuario.numCedula)){
-                for (Multa multa : listaMultas){
-                    if (cedulaCl.equals(multa.getCliente().getNumCedula())){
+        for (Usuario usuario : listaUsuarios) {
+            if (cedulaCl.equals(usuario.numCedula)) {
+                for (Multa multa : listaMultas) {
+                    if (cedulaCl.equals(multa.getCliente().getNumCedula())) {
                         multasCliente.add(multa);
                     }
                 }
-                for (Multa mult : multasCliente){
+                for (Multa mult : multasCliente) {
                     valorAPagarMult += RegistroPago.valorRevision(mult);
                 }
                 valorAPagarRev += RegistroPago.valorMulta(multasCliente);
             }
         }
-                System.out.println();
-                System.out.println("Que modo de pago va a usar?");
-                System.out.println("1. Efectivo");
-                System.out.println("2. Tarjeta de crédito");
-                System.out.println();
-                System.out.println("Elija una opcion:  ");
-                int modoPago = sc.nextInt();
-                sc.nextLine();
-                }
-                System.out.println("Que modo de pago va a usar?");
-                System.out.println("1. Efectivo");
-                System.out.println("2. Tarjeta de crédito");
-                System.out.println();
-                System.out.println("Elija una opcion:  ");
+        System.out.println();
+        System.out.println("Que modo de pago va a usar?");
+        System.out.println("1. Efectivo");
+        System.out.println("2. Tarjeta de crédito");
+        System.out.println();
+        System.out.println("Elija una opcion:  ");
+        int modoPago = sc.nextInt();
+        sc.nextLine();
+    }
+
+    System.out.println (
+
+    "Que modo de pago va a usar?");
+    System.out.println (
+
+    "1. Efectivo");
+    System.out.println (
+
+    "2. Tarjeta de crédito");
+    System.out.println ();
+
+    System.out.println (
+    "Elija una opcion:  ");
                 int modoPago2 = sc.nextInt();
-                sc.nextLine();
-                switch (modoPago2){
-                    case 1:
-                        System.out.println("Valor a pagar: "+valorAPagarRev);
-                        break;
-                    case 2:
-                        double pagoF = 1.1 * valorAPagarRev;
-                        System.out.println("Valor a pagar: "+pagoF);
-                        break;
-                    default:
-                        System.out.println("Opción inválida");
-                        break;
-                }
-                break;
-            default:
-                System.out.println("Opción inválida");
-                break;
+
+    sc.nextLine ();
+    switch (modoPago2) {
+        case 1:
+            System.out.println("Valor a pagar: " + valorAPagarRev);
+            break;
+        case 2:
+            double pagoF = 1.1 * valorAPagarRev;
+            System.out.println("Valor a pagar: " + pagoF);
+            break;
+        default:
+            System.out.println("Opción inválida");
+            break;
+    }
+    break;
+            default
+
+    :
+    System.out.println (
+    "Opción inválida");
+
+break;
         }
         sc.nextLine();
         switch (tipoP){
@@ -119,7 +136,7 @@ public class Operador extends Usuario {
      * Método sobrescrito
      */
     @Override
-    public void consultarMultas(ArrayList<Multa> listaMultas) {
+public void consultarMultas(ArrayList<Multa> listaMultas) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el mes a consultar: ");
