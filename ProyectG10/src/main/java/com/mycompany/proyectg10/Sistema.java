@@ -12,9 +12,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author cmontes
- */
+* La clase Sistema almacena el codigo Main del proyecto y los metodos 
+* correspondientes a utilizar en el programa principal.
+* 
+*/
 public class Sistema {
     static ArrayList<Usuario> listaUsuarios;
     static ArrayList<Multa> listaMultas;
@@ -35,7 +36,10 @@ public class Sistema {
             mostrarMenuOperador(operador);
         }
     }
-    
+    /**
+    * Metodo para crear un arrayList con los vehiculos del archivo proporcionado
+    *
+    */
     public static void cargarListaVehiculos(){
         ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("vehiculos.txt");
         for (String lineaVehi : datosVehi){
@@ -44,7 +48,10 @@ public class Sistema {
             listaVehiculos.add(vehiculo);
         }
     }
-    
+        /**
+    * Metodo para crear un arrayList con los usuarios del archivo proporcionado
+    *
+    */
     public static void cargarListaUsuarios(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("usuarios.txt");
         for (String linea: datos){
@@ -92,7 +99,10 @@ public class Sistema {
             }
         }
     }
-    
+    /**
+    * Metodo para crear un arrayList con las multas del archivo proporcionado
+    *
+    */
     public static void cargarListaMultas(){
         ArrayList<String> datos = ManejoArchivos.LeeFichero("multas.txt");
         for (String linea : datos){
@@ -121,7 +131,10 @@ public class Sistema {
             }
         }
     }
-    
+    /**
+    * Metodo para validar el inicio de sesión
+    * @return usuarioRetorno Usuario
+    */
     public static Usuario inciarSesion(){
         Scanner sc = new Scanner(System.in);
         System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
@@ -144,7 +157,11 @@ public class Sistema {
         }
         return usuarioRetorno;
     }
-    
+    /**
+    * Metodo para mostrar el menu solo a los clientes
+    * @param cliente Cliente
+    *
+    */
     public static void mostrarMenuCliente(Cliente cliente){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Consultar Multas");
@@ -168,7 +185,11 @@ public class Sistema {
             }
         } sc.close();
     }
-    
+    /**
+    * Metodo para mostrar menu solo al Operador
+    * @param operador Operador
+    *
+    */
     public static void mostrarMenuOperador(Operador operador){
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Registrar pagos");

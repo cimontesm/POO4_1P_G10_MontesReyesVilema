@@ -5,8 +5,8 @@
 package com.mycompany.proyectg10;
 
 /**
- *
- * @author cmontes
+ * Clase enum para definir los tipos de Usuario
+ * 
  */
 public enum TipoUsuario {
     CLIENTE, OPERADOR;
