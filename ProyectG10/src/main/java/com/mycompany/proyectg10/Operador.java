@@ -16,7 +16,7 @@ public class Operador extends Usuario {
     
     private double sueldo;
   /**
-     * Metodo constructor de la clase Usuario
+     * Metodo constructor de la clase Operador
      * @param sueldo double
      * @param numCedula String
      * @param nombre String
