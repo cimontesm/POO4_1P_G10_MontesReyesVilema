@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * @author cmontes
  */
 public abstract class Usuario {
-    private String numCedula, nombre, correo, contrasenia, usuario;
-    private int edad;
-    private TipoUsuario perfil;
+    protected String numCedula, nombre, correo, contrasenia, usuario;
+    protected int edad;
+    protected TipoUsuario perfil;
     
     public Usuario(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario) {
         this.numCedula = numCedula;
