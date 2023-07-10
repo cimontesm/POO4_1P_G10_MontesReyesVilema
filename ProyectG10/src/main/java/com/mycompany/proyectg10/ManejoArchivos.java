@@ -9,10 +9,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
- *
- * @author cmontes
+ * Clase que nos ayuda a leer y escribir los archivos a utilizar
+ * 
  */
 public class ManejoArchivos {
+        /**
+     * Metodo para leer archivos
+     * @param nombreArchivo String
+     * @return ArrayList<String>
+     */
     public static ArrayList<String> LeeFichero(String nombreArchivo) {
         ArrayList<String> lineas = new ArrayList<>();
         File archivo = null;
@@ -41,7 +46,11 @@ public class ManejoArchivos {
         }
         return lineas;
     }
-    
+        /**
+     * Metodo para escribir los archivos
+     * @param nombreArchivo String
+     * @param linea String
+     */
     public static void EscribirArchivo(String nombreArchivo,String linea) {
         FileWriter fichero = null;
         BufferedWriter bw = null;
