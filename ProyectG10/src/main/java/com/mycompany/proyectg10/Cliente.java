@@ -14,15 +14,28 @@ import java.util.logging.Logger;
 import java.util.Random;
 
 /**
- *
- * @author cmontes
+ * Clase Cliente contiene su constructor, su metodo sobrescrito y agendarRevision
+ * 
  */
 public class Cliente extends Usuario {
     private int tarjetaCredito;
     private int puntosLicencia;
     private TipoCliente tipoC;
     private Vehiculo vehiculo;
-    
+        /**
+     * Metodo constructor de la clase Multa
+     * @param numCedula String
+     * @param nombre String
+     * @param edad int
+     * @param perfil TipoUsuario
+     * @param correo String
+     * @param contrasenia String
+     * @param usuario String
+     * @param tarjetaCredito int 
+     * @param puntosLicencia int
+     * @param tipoC TipoCliente
+     * @param vehiculo Vehiculo
+     */
     public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
         super(numCedula,nombre,edad,perfil,correo,contrasenia, usuario);
         this.tarjetaCredito = tarjetaCredito;
@@ -30,31 +43,61 @@ public class Cliente extends Usuario {
         this.tipoC = tipoC;
         this.vehiculo = vehiculo;
     }
+        /**
+     * Metodo getter para consultar tarjetaCredito
+     * @return tarjetaCredito 
+     */
     public int getTarjetaCredito() {
         return tarjetaCredito;
     }
+        /**
+     * Metodo setter para establecer tarjetaCredito
+     * @param tarjetaCredito int
+     */
     public void setTarjetaCredito(int tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
+        /**
+     * Metodo getter para consultar puntosLicencia
+     * @return puntosLicencia
+     */
     public int getPuntosLicencia() {
         return puntosLicencia;
-    }
+    }    /**
+     * Metodo setter para establecer puntosLicencia
+     * @param puntosLicencia int
+     */
     public void setPuntosLicencia(int puntosLicencia) {
         this.puntosLicencia = puntosLicencia;
-    }
+    }    /**
+     * Metodo getter para consultar tipoC
+     * @return tipoC
+     */
     public TipoCliente getTipoC() {
         return tipoC;
-    }
+    }    /**
+     * Metodo setter para establecer tipoC
+     * @param tipoC TipoCliente
+     */
     public void setTipoC(TipoCliente tipoC) {
         this.tipoC = tipoC;
     }
+        /**
+     * Metodo getter para consultar Vehiculo
+     * @return vehiculo
+     */
     public Vehiculo getVehiculo() {
         return vehiculo;
-    }
+    }    /**
+     * Metodo setter para establecer vehiculo
+     * @param vehiculo Vehiculo
+     */
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
-    
+        /**
+     * Metodo sobrescrito 
+     */
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas){
         ArrayList<Double> valoresMultas = new ArrayList<>();
@@ -81,7 +124,10 @@ public class Cliente extends Usuario {
         System.out.println("PARA PAGAR PUEDE ACERCARSE A LA AGENCIA MÁS CERCANA.");
         sc.close();
     }
-    
+        /**
+     * Metodo getter para agendar revision
+     * @param listaMultas ArrayList<Multa>
+     */
     public void agendarRev(ArrayList<Multa> listaMultas){
         ArrayList<Multa> multasCliente = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
