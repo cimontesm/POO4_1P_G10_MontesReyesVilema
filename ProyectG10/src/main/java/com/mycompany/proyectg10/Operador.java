@@ -30,7 +30,12 @@ public class Operador extends Usuario {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
-    
+      /**
+     * Metodo para registrar el pago ya sea multa o revision
+     * @param listaUsuarios ArrayList<Usuario>
+     * @param listaMultas ArrayList<Multa>
+     * 
+     */
     public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMultas) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Multa> multasCliente = new ArrayList<>();
