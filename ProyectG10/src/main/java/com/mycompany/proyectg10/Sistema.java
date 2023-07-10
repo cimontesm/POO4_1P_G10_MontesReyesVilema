@@ -122,7 +122,7 @@ public class Sistema {
         System.out.println("Contrasena: ");
         String contrasena = sc.nextLine();
         for(Usuario usuarios:listaUsuarios){
-            if(usuarios.getUsuario().equals(usuario)||usuarios.getContrasenia().equals(constrasena)){
+            if(usuarios.getUsuario().equals(usuario)||usuarios.getContrasenia().equals(contrasena)){
                 
             }
         }

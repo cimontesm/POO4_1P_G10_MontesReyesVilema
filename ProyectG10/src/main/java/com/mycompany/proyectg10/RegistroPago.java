@@ -4,11 +4,14 @@
  */
 package com.mycompany.proyectg10;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cmontes
  */
 public class RegistroPago {
+
     private Cliente cliente;
     private int codPago;
     private double valorPagar;
@@ -82,6 +85,29 @@ public class RegistroPago {
     public void setRazonPago(String razonPago) {
         this.razonPago = razonPago;
     }
-    
-    
+
+    public double valorRevision(Multa multa) {
+        double base = 150;
+        double valorAPagar = 0;
+        if (multa.getCliente().getTipoC().equals(TipoCliente.ESTANDAR)) {
+            valorAPagar = base + (multa.getPuntos() * 10);
+        } else {
+            valorAPagar = base - (base * 0.20);
+        }
+        return valorAPagar;
+    }
+
+    public double valorMulta(ArrayList<Multa> listaMultas) {
+        ArrayList<Double> valoresMultas = new ArrayList<>();
+        double total = 0;
+        for (Multa m : listaMultas) {
+            valoresMultas.add(m.getValorAPagar());
+        }
+        for (int i = 0; i < valoresMultas.size(); i++) {
+            total += valoresMultas.get(i);
+        }
+        return total;
+
+    }
+
 }
