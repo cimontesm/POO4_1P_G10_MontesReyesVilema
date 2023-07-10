@@ -47,12 +47,12 @@ public class Operador extends Usuario {
             System.out.println("Elija una opcion:  ");
             int modoPago = sc.nextInt();
         
-            if(modoPago==2){
-                pago.getValorFinal()=pago*1.1;
-                System.out.println(pago);
-            }else{
-                System.out.println(pago);
-            }
+//            if(modoPago==2){
+//                pago.getValorFinal()=pago*1.1;
+//                System.out.println(pago);
+//            }else{
+//                System.out.println(pago);
+//            }
             
         }else{
 //            System.out.println("Valor a pagar: "+ pago.ValorRevision() );
@@ -64,12 +64,12 @@ public class Operador extends Usuario {
             System.out.println("Elija una opcion:  ");
             int modoPago = sc.nextInt();
         
-            if(modoPago==2){
-                pago=pago*1.1;
-                System.out.println(pago.getValorRevision);
-            }else{
-                System.out.println(pago);
-            }
+//            if(modoPago==2){
+//                pago=pago*1.1;
+//                System.out.println(pago.getValorRevision);
+//            }else{
+//                System.out.println(pago);
+//            }
            } 
         }
         

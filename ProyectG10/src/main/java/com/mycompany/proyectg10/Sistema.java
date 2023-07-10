@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.proyectg10;
-
+import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,11 +21,15 @@ public class Sistema {
     static ArrayList<Vehiculo> listaVehiculos;
     
     public static void main(String[] args){
+        cargarListaVehiculos();
+        cargarListaUsuarios();
+        cargarListaMultas();
+        
         
     }
     
     public static void cargarListaVehiculos(){
-        ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("Vehiculos.txt");
+        ArrayList<String> datosVehi = ManejoArchivos.LeeFichero("vehiculos.txt");
         for (String lineaVehi : datosVehi){
             String[] elementosVehi = lineaVehi.trim().split(",");
             Vehiculo vehiculo = new Vehiculo(elementosVehi[1],elementosVehi[0],elementosVehi[2],elementosVehi[3],Integer.parseInt(elementosVehi[4]),elementosVehi[5],elementosVehi[6]);
@@ -108,5 +112,20 @@ public class Sistema {
                 }
             }
         }
+    }
+    
+    public static void inciarSesion(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
+        System.out.println("Usuario: ");
+        String usuario = sc.nextLine();
+        System.out.println("Contrasena: ");
+        String contrasena = sc.nextLine();
+        for(Usuario usuarios:listaUsuarios){
+            if(usuarios.getUsuario().equals(usuario)||usuarios.getContrasenia().equals(constrasena)){
+                
+            }
+        }
+        
     }
 }
