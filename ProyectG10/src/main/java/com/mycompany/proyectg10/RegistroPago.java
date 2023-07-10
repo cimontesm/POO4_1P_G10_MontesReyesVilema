@@ -110,4 +110,8 @@ public class RegistroPago {
 
     }
 
+    public String escribirPago() {
+        return this.codPago + "," + this.cliente.getNumCedula() + "," + this.valorPagar;
+    }
+
 }

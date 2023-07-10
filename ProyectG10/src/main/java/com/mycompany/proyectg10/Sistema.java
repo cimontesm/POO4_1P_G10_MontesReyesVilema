@@ -20,6 +20,7 @@ public class Sistema {
     static ArrayList<Multa> listaMultas;
     static ArrayList<Vehiculo> listaVehiculos;
     
+    
     public static void main(String[] args){
         cargarListaVehiculos();
         cargarListaUsuarios();

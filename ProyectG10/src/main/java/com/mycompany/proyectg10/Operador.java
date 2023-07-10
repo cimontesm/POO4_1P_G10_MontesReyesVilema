@@ -13,28 +13,33 @@ import java.util.Scanner;
  * @author cmontes
  */
 public class Operador extends Usuario {
-    
+
     private double sueldo;
-    
+
     public Operador(double sueldo, String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario) {
         super(numCedula, nombre, edad, perfil, correo, contrasenia, usuario);
         this.sueldo = sueldo;
     }
-    
-    public void registrarPago(ArrayList<RegistroPago> listaPagos) {
+
+    public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMulta) {
+//        ArrayList<Multa> pagos = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        
+
         System.out.println("----------------");
         System.out.println("REGISTRAR PAGOS");
         System.out.println("----------------");
         
+        System.out.println("\n Ingrese su numero de cedula: ");
+        String cedula= sc.nextLine();
+        
+
         System.out.println("Que desea pagar?");
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
         System.out.println();
         System.out.println("Elija una opcion: ");
         int tipoP = sc.nextInt();
-        for (RegistroPago pago : listaPagos) {
+        for (RegistroPago pago : listaMultas) {
             if (tipoP == 1) {
                 System.out.println("Valor a pagar: " + pago.valorMulta(listaMultas));
                 System.out.println();
@@ -44,17 +49,21 @@ public class Operador extends Usuario {
                 System.out.println();
                 System.out.println("Elija una opcion:  ");
                 int modoPago = sc.nextInt();
-                
+                sc.nextLine();
+
                 if (modoPago == 2) {
                     double pagoF = 1.1 * pago.valorMulta(listaMultas);
                     System.out.println(pagoF);
+                    ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
                 } else {
                     System.out.println(pago.valorMulta(listaMultas));
+                    ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+
                 }
-                
+
             } else {
                 for (Multa multa : listaMultas) {
-                    
+
                     System.out.println("Valor a pagar: " + pago.valorRevision(multa));
                     System.out.println();
                     System.out.println("Que modo de pago va a usar?");
@@ -63,15 +72,19 @@ public class Operador extends Usuario {
                     System.out.println();
                     System.out.println("Elija una opcion:  ");
                     int modoPago = sc.nextInt();
-                    
+
                     if (modoPago == 2) {
                         double pagoF = pago.valorRevision(multa) * 1.1;
                         System.out.println(pagoF);
+                        ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+
                     } else {
-                        
+
                         System.out.println(pago.valorRevision(multa));
+                        ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+
                     }
-                    
+
                 }
                 System.out.println("Que modo de pago va a usar?");
                 System.out.println("1. Efectivo");
@@ -88,7 +101,7 @@ public class Operador extends Usuario {
                 }
             }
         }
-        
+
         System.out.println("Desea proceder con el pago? ");
         System.out.println("1. Si ");
         System.out.println("2. No ");
@@ -96,22 +109,22 @@ public class Operador extends Usuario {
         int proceder = sc.nextInt();
         if (proceder == 1) {
             System.out.println("----------\n Se ha realizado el pago. Ahora puede proceder a la revision\n ------------\n ");
-            
+
         }
-        
+
     }
-    
+
     public double getSueldo() {
         return sueldo;
     }
-    
+
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
-    
+
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas) {
-        
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el mes a consultar: ");
         String mes = sc.nextLine();
@@ -124,20 +137,20 @@ public class Operador extends Usuario {
             }
         }
     }
-    
+
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
             Cliente op = (Cliente) usuario;
             if (op.getTipoC().equals("ESTANDAR")) {
                 System.out.println(op.getNombre() + " | " + op.getTipoC().ESTANDAR + " | " + op.getNumCedula());
-                
+
             } else if (op.getTipoC().equals("ESTRELLA")) {
                 System.out.println(op.getNombre() + " | " + op.getTipoC().ESTRELLA + " | " + op.getNumCedula());
             } else {
                 System.out.println(op.getNombre() + " | " + " | " + sueldo);
             }
         }
-        
+
     }
-    
+
 }
