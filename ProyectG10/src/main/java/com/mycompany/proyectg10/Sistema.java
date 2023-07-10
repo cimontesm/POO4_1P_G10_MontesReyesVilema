@@ -203,7 +203,7 @@ public class Sistema {
             sc.nextLine();
             switch (opcion){
                 case 1:
-                    operador.registrarPago(listaPagos);
+                    operador.registrarPago(listaUsuarios, listaMultas);
                     break;
                 case 2:
                     operador.consultarMultas(listaMultas);

@@ -25,7 +25,6 @@ public class RegistroPago {
      * @param valorPagar double
      * @param modoPago TipoPago
      * @param valorFinal double
-     * @param fechaPago String
      * @param razonPago String
      */
 
@@ -107,20 +106,7 @@ public class RegistroPago {
     public void setValorFinal(double valorFinal) {
         this.valorFinal = valorFinal;
     }
-    /**
-     * Metodo getter para consultar fechaPago
-     * @return fechaPago
-     */
-    public String getFechaPago() {
-        return fechaPago;
-    }
-    /**
-     * Metodo setter para establecer fechaPago
-     * @return fechaPago
-     */
-    public void setFechaPago(String fechaPago) {
-        this.fechaPago = fechaPago;
-    }
+
     /**
      * Metodo getter para consultar razonPago
      * @return razonPago
@@ -140,7 +126,7 @@ public class RegistroPago {
      * @param multa Multa
      * @return valorAPagar double
      */
-    public double valorRevision(Multa multa) {
+    public static double valorRevision(Multa multa) {
         double base = 150;
         double valorAPagar = 0;
         if (multa.getCliente().getTipoC().equals(TipoCliente.ESTANDAR)) {
@@ -150,6 +136,14 @@ public class RegistroPago {
         }
         return valorAPagar;
     }
+    
+    /**
+     * Metodo para verificar valorMulta
+     * @param listaMultas ArrayList<Multa>
+     * @return double con el total a pagar
+     */
+    
+    public static double valorMulta(ArrayList<Multa> listaMultas) {
         ArrayList<Double> valoresMultas = new ArrayList<>();
         double total = 0;
         for (Multa m : listaMultas) {
@@ -163,9 +157,3 @@ public class RegistroPago {
     }
 
 }
-    /**
-     * Metodo para verificar valorMulta
-     * @param listaMultas ArrayList<Multa>
-     * @return double con el total a pagar
-     */
-    public double valorMulta(ArrayList<Multa> listaMultas) {
