@@ -17,16 +17,14 @@ public class RegistroPago {
     private double valorPagar;
     private TipoPago modoPago;
     private double valorFinal;
-    private String fechaPago;
     private String razonPago;
 
-    public RegistroPago(Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String fechaPago, String razonPago) {
+    public RegistroPago(Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago) {
         this.cliente = cliente;
         this.codPago = codPago;
         this.valorPagar = valorPagar;
         this.modoPago = modoPago;
         this.valorFinal = valorFinal;
-        this.fechaPago = fechaPago;
         this.razonPago = razonPago;
     }
 
@@ -69,15 +67,7 @@ public class RegistroPago {
     public void setValorFinal(double valorFinal) {
         this.valorFinal = valorFinal;
     }
-
-    public String getFechaPago() {
-        return fechaPago;
-    }
-
-    public void setFechaPago(String fechaPago) {
-        this.fechaPago = fechaPago;
-    }
-
+    
     public String getRazonPago() {
         return razonPago;
     }
@@ -85,8 +75,8 @@ public class RegistroPago {
     public void setRazonPago(String razonPago) {
         this.razonPago = razonPago;
     }
-
-    public double valorRevision(Multa multa) {
+    
+    public static double valorRevision(Multa multa) {
         double base = 150;
         double valorAPagar = 0;
         if (multa.getCliente().getTipoC().equals(TipoCliente.ESTANDAR)) {
@@ -97,7 +87,7 @@ public class RegistroPago {
         return valorAPagar;
     }
 
-    public double valorMulta(ArrayList<Multa> listaMultas) {
+    public static double valorMulta(ArrayList<Multa> listaMultas) {
         ArrayList<Double> valoresMultas = new ArrayList<>();
         double total = 0;
         for (Multa m : listaMultas) {
