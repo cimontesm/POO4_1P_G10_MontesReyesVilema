@@ -26,6 +26,7 @@ public class Sistema {
         listaUsuarios = new ArrayList<>();
         listaMultas = new ArrayList<>();
         listaVehiculos = new ArrayList<>();
+        
         cargarListaVehiculos();
         cargarListaUsuarios();
         cargarListaMultas();
