@@ -143,7 +143,7 @@ public class Sistema {
     */
     public static Usuario inciarSesion(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("+++++++++++++++++++++++++++\nBienvenido al Sistema\n+++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++\n   Bienvenido al Sistema\n+++++++++++++++++++++++++++");
         
         Usuario usuarioRetorno = null;
         boolean x = true;
