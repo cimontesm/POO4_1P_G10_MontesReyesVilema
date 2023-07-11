@@ -72,14 +72,7 @@ public class Operador extends Usuario {
             }
 
             System.out.println();
-            System.out.println("Que modo de pago va a usar?");
-            System.out.println("1. Efectivo");
-            System.out.println("2. Tarjeta de crédito");
-            System.out.println();
-            System.out.println("Elija una opcion:  ");
-            int modoPago = sc.nextInt();
-            sc.nextLine();
-
+            
             System.out.println("Que modo de pago va a usar?");
             System.out.println("1. Efectivo");
             System.out.println("2. Tarjeta de crédito");
@@ -92,6 +85,7 @@ public class Operador extends Usuario {
             switch (modoPago2) {
                 case 1:
                     System.out.println("Valor a pagar: " + valorAPagarRev);
+                    
                     break;
                 case 2:
                     double pagoF = 1.1 * valorAPagarRev;
