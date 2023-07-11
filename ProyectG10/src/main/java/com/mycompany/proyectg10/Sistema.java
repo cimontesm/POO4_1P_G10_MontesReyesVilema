@@ -23,6 +23,9 @@ public class Sistema {
     
     
     public static void main(String[] args){
+        listaUsuarios = new ArrayList<>();
+        listaMultas = new ArrayList<>();
+        listaVehiculos = new ArrayList<>();
         cargarListaVehiculos();
         cargarListaUsuarios();
         cargarListaMultas();
@@ -60,7 +63,7 @@ public class Sistema {
             String tipo = elementos[6];
             switch (tipo){
                 case "O":
-                    ArrayList<String> datosOp = ManejoArchivos.LeeFichero("operador.txt");
+                    ArrayList<String> datosOp = ManejoArchivos.LeeFichero("operadores.txt");
                     for (String lineaOp : datosOp){
                         String[] elementosOp = lineaOp.trim().split(",");
                         if (elementos[0].equals(elementosOp[0])){
@@ -76,7 +79,7 @@ public class Sistema {
                         if (elementos[0].equals(elementosCl[0])){
                             for (Vehiculo vehiculo : listaVehiculos){
                                 if (elementosCl[0].equals(vehiculo.getDuenio())){
-                                    Usuario us2 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],Integer.parseInt(elementosCl[1]),Integer.parseInt(elementosCl[2]),TipoCliente.ESTANDAR,vehiculo);
+                                    Usuario us2 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],elementosCl[1],Integer.parseInt(elementosCl[2]),TipoCliente.ESTANDAR,vehiculo);
                                     listaUsuarios.add(us2);
                                 }
                             }
@@ -90,7 +93,7 @@ public class Sistema {
                         if (elementos[0].equals(elementosCl2[0])){
                             for (Vehiculo vehiculo : listaVehiculos){
                                 if (elementosCl2[0].equals(vehiculo.getDuenio())){
-                                    Usuario us3 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],Integer.parseInt(elementosCl2[1]),Integer.parseInt(elementosCl2[2]),TipoCliente.ESTRELLA,vehiculo);
+                                    Usuario us3 = new Cliente(elementos[0],elementos[1],Integer.parseInt(elementos[2]),TipoUsuario.CLIENTE,elementos[3],elementos[5],elementos[4],elementosCl2[1],Integer.parseInt(elementosCl2[2]),TipoCliente.ESTRELLA,vehiculo);
                                     listaUsuarios.add(us3);
                                 }
                             }

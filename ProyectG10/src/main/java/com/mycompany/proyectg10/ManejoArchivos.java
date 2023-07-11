@@ -30,7 +30,7 @@ public class ManejoArchivos {
             br = new BufferedReader(fr);
             String linea;
             while ((linea = br.readLine()) != null){
-                System.out.println(linea);
+//                System.out.println(linea);
                 lineas.add(linea);
             }
         } catch (Exception e1){

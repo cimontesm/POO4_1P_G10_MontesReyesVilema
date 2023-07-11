@@ -18,7 +18,7 @@ import java.util.Random;
  * 
  */
 public class Cliente extends Usuario {
-    private int tarjetaCredito;
+    private String tarjetaCredito;
     private int puntosLicencia;
     private TipoCliente tipoC;
     private Vehiculo vehiculo;
@@ -36,7 +36,7 @@ public class Cliente extends Usuario {
      * @param tipoC TipoCliente
      * @param vehiculo Vehiculo
      */
-    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario, int tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
+    public Cliente(String numCedula, String nombre, int edad, TipoUsuario perfil, String correo, String contrasenia, String usuario, String tarjetaCredito, int puntosLicencia, TipoCliente tipoC, Vehiculo vehiculo){
         super(numCedula,nombre,edad,perfil,correo,contrasenia, usuario);
         this.tarjetaCredito = tarjetaCredito;
         this.puntosLicencia = puntosLicencia;
@@ -47,14 +47,14 @@ public class Cliente extends Usuario {
      * Metodo getter para consultar tarjetaCredito
      * @return tarjetaCredito 
      */
-    public int getTarjetaCredito() {
+    public String getTarjetaCredito() {
         return tarjetaCredito;
     }
         /**
      * Metodo setter para establecer tarjetaCredito
      * @param tarjetaCredito int
      */
-    public void setTarjetaCredito(int tarjetaCredito) {
+    public void setTarjetaCredito(String tarjetaCredito) {
         this.tarjetaCredito = tarjetaCredito;
     }
         /**

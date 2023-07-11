@@ -4,7 +4,6 @@
  */
 package com.mycompany.proyectg10;
 
-import static com.mycompany.proyectg10.Sistema.listaMultas;
 import java.util.ArrayList;
 import java.util.Scanner;
 
