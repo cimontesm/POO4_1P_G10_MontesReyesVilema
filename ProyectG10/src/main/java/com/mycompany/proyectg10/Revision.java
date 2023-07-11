@@ -103,9 +103,9 @@ public class Revision {
         double base = 150;
         double valorAPagar = 0;
         if(multa.getCliente().getTipoC()==TipoCliente.ESTANDAR){
-            valorAPagar = base+(multa.getPuntos()*10);
+            valorAPagar += base+(multa.getPuntos()*10);
         }else{
-            valorAPagar = base-(base*0.20);
+            valorAPagar += base-(base*0.20);
         }
         return valorAPagar;
     }

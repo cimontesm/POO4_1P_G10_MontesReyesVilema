@@ -46,6 +46,35 @@ public class ManejoArchivos {
         }
         return lineas;
     }
+    
+    public static ArrayList<String> LeeFicheroConImpresion(String nombreArchivo) {
+        ArrayList<String> lineas = new ArrayList<>();
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        
+        try {
+            archivo = new File(nombreArchivo);
+            fr = new FileReader(archivo,StandardCharsets.UTF_8);
+            br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null){
+                System.out.println(linea);
+                lineas.add(linea);
+            }
+        } catch (Exception e1){
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (null != fr){
+                    fr.close();
+                }
+            } catch (Exception e2){
+                e2.printStackTrace();
+            }
+        }
+        return lineas;
+    }
         /**
      * Metodo para escribir los archivos
      * @param nombreArchivo String

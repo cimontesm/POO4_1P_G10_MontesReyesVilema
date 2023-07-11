@@ -31,6 +31,10 @@ public class Sistema {
         cargarListaUsuarios();
         cargarListaMultas();
         
+//        System.out.println(listaVehiculos);
+//        System.out.println(listaUsuarios);
+//        System.out.println(listaMultas);
+        
         Usuario usuario = inciarSesion();
         
         if (usuario instanceof Cliente){
@@ -52,6 +56,7 @@ public class Sistema {
             Vehiculo vehiculo = new Vehiculo(elementosVehi[1],elementosVehi[0],elementosVehi[2],elementosVehi[3],Integer.parseInt(elementosVehi[4]),elementosVehi[5],elementosVehi[6]);
             listaVehiculos.add(vehiculo);
         }
+        
     }
         /**
     * Metodo para crear un arrayList con los usuarios del archivo proporcionado
@@ -188,7 +193,7 @@ public class Sistema {
                     System.out.println("Opción inválida");
                     break;
             }
-        } sc.close();
+        }
     }
     /**
     * Metodo para mostrar menu solo al Operador
@@ -220,6 +225,6 @@ public class Sistema {
                     System.out.println("Opción inválida");
                     break;
             }
-        } sc.close();
+        }
     }
 }

@@ -112,17 +112,15 @@ public class Cliente extends Usuario {
         for (Multa multa : listaMultas){
             if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
                 multa.toString();
+                valoresMultas.add(multa.getValorAPagar());
             }
-        }
-        for (Multa m : listaMultas){
-            valoresMultas.add(m.getValorAPagar());
         }
         for (int i=0;i<valoresMultas.size();i++){
             total += valoresMultas.get(i);
         }
         System.out.println("TOTAL A PAGAR: "+total);
         System.out.println("PARA PAGAR PUEDE ACERCARSE A LA AGENCIA MÁS CERCANA.");
-        sc.close();
+//        sc.close();
     }
         /**
      * Metodo getter para agendar revision
@@ -144,7 +142,7 @@ public class Cliente extends Usuario {
         if (multasCliente.isEmpty()){
             System.out.println("No tiene multas.");
             System.out.println("                          Horarios disponibles                          ");
-            ArrayList<String> datos = ManejoArchivos.LeeFichero("horariosdisponibles.txt");
+            ArrayList<String> datos = ManejoArchivos.LeeFicheroConImpresion("horariosdisponibles.txt");
             System.out.print("Elija el horario para la revisión: ");
             int num = sc.nextInt();
             sc.nextLine();
@@ -176,6 +174,6 @@ public class Cliente extends Usuario {
         } else {
             System.out.println("Usted tiene multas, no puede agendar cita para revisión.");
         }
-        sc.close();
+//        sc.close();
     }
 }
