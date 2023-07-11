@@ -5,6 +5,7 @@
 package com.mycompany.proyectg10;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -48,16 +49,18 @@ public class Operador extends Usuario {
         System.out.println("                                            REGISTRAR PAGOS                                           ");
         System.out.println("------------------------------------------------------------------------------------------------------");
 
-        System.out.println("Que desea pagar?");
+        System.out.println("¿Qué desea pagar?");
         System.out.println("1. Multa");
         System.out.println("2. Revisión técnica");
         System.out.println();
-        System.out.println("Elija una opcion: ");
+        System.out.print("Elija una opcion: ");
         int tipoP = sc.nextInt();
+        sc.nextLine();
         double valorAPagarMult = 0;
         double valorAPagarRev = 0;
         System.out.print("Ingrese el número de cédula del cliente: ");
         String cedulaCl = sc.nextLine();
+        Cliente cliente;
         for (Usuario usuario : listaUsuarios) {
             if (cedulaCl.equals(usuario.numCedula)) {
                 for (Multa multa : listaMultas) {
@@ -65,42 +68,168 @@ public class Operador extends Usuario {
                         multasCliente.add(multa);
                     }
                 }
-                for (Multa mult : multasCliente) {
-                    valorAPagarMult += RegistroPago.valorRevision(mult);
+                cliente = (Cliente)usuario;
+            }
+        }
+        for (Multa mult : multasCliente) {
+            valorAPagarMult += RegistroPago.valorRevision(mult);
+        }
+        valorAPagarRev += RegistroPago.valorMulta(multasCliente);
+        
+        switch (tipoP) {
+            case 1:
+                System.out.println("Valor a pagar: " + valorAPagarMult);
+                System.out.println();
+        
+                System.out.println("Que modo de pago va a usar?");
+                System.out.println("1. Efectivo");
+                System.out.println("2. Tarjeta de crédito");
+                System.out.println();
+
+                System.out.println("Elija una opcion: ");
+                int modoPago1 = sc.nextInt();
+                sc.nextLine();
+        
+                switch (modoPago1){
+                    case 1:
+                        System.out.println("Valor a pagar: " + valorAPagarMult);
+                                
+                        System.out.println();
+        
+                        System.out.println("¿Desea proceder con el pago?");
+                        System.out.println("1. Sí");
+                        System.out.println("2. No");
+                        System.out.println();
+        
+                        System.out.println("Elija una opcion: ");
+                        int op = sc.nextInt();
+                        sc.nextLine();
+             // Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago
+                        switch (op){
+                            case 1:
+                                System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
+                                Random rd = new Random();
+                                int codigo = rd.nextInt(9000)+1000;
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.EFECTIVO,valorAPagarMult,"MULTA");
+                                ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                break;
+                            case 2:
+                                System.out.println("El pago ha sido cancelado.");
+                        }
+                        break;
+                        
+                    case 2:
+                        double pagoF = 1.1 * valorAPagarMult;
+                        System.out.println("Valor a pagar: " + pagoF);
+                                
+                        System.out.println();
+        
+                        System.out.println("¿Desea proceder con el pago?");
+                        System.out.println("1. Sí");
+                        System.out.println("2. No");
+                        System.out.println();
+        
+                        System.out.println("Elija una opcion: ");
+                        int op2 = sc.nextInt();
+                        sc.nextLine();
+             // Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago
+                        switch (op2){
+                            case 1:
+                                System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
+                                Random rd = new Random();
+                                int codigo = rd.nextInt(9000)+1000;
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.TARJETA,valorAPagarMult,"MULTA");
+                                ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                break;
+                            case 2:
+                                System.out.println("El pago ha sido cancelado.");
+                        }
+                        break;
+                        
+                    default:
+                        System.out.println("Opción inválida");
+                        break;
                 }
-                valorAPagarRev += RegistroPago.valorMulta(multasCliente);
-            }
+                break;
+                
+            case 2:
+                System.out.println("Valor a pagar: " + valorAPagarRev);
+                System.out.println();
+        
+                System.out.println("Que modo de pago va a usar?");
+                System.out.println("1. Efectivo");
+                System.out.println("2. Tarjeta de crédito");
+                System.out.println();
 
-            System.out.println();
-            
-            System.out.println("Que modo de pago va a usar?");
-            System.out.println("1. Efectivo");
-            System.out.println("2. Tarjeta de crédito");
-            System.out.println();
-
-            System.out.println("Elija una opcion:  ");
-            int modoPago2 = sc.nextInt();
-
-            sc.nextLine();
-            switch (modoPago2) {
-                case 1:
-                    System.out.println("Valor a pagar: " + valorAPagarRev);
-                    
-                    break;
-                case 2:
-                    double pagoF = 1.1 * valorAPagarRev;
-                    System.out.println("Valor a pagar: " + pagoF);
-                    break;
-                default:
-                    System.out.println("Opción inválida");
-                    break;
-            }
-
-            sc.nextLine();
-            switch (tipoP) {
-                case 1:
-                    System.out.println("Valor a pagar: " + valorAPagarMult);
-            }
+                System.out.println("Elija una opcion: ");
+                int modoPago2 = sc.nextInt();
+                sc.nextLine();
+        
+                switch (modoPago2){
+                    case 1:
+                        System.out.println("Valor a pagar: " + valorAPagarRev);
+                                
+                        System.out.println();
+        
+                        System.out.println("¿Desea proceder con el pago?");
+                        System.out.println("1. Sí");
+                        System.out.println("2. No");
+                        System.out.println();
+        
+                        System.out.println("Elija una opcion: ");
+                        int op = sc.nextInt();
+                        sc.nextLine();
+             // Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago
+                        switch (op){
+                            case 1:
+                                System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
+                                Random rd = new Random();
+                                int codigo = rd.nextInt(9000)+1000;
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarRev,TipoPago.EFECTIVO,valorAPagarRev,"REVISIÓN");
+                                ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                break;
+                            case 2:
+                                System.out.println("El pago ha sido cancelado.");
+                        }
+                        break;
+                        
+                    case 2:
+                        double pagoF = 1.1 * valorAPagarRev;
+                        System.out.println("Valor a pagar: " + pagoF);
+                                
+                        System.out.println();
+        
+                        System.out.println("¿Desea proceder con el pago?");
+                        System.out.println("1. Sí");
+                        System.out.println("2. No");
+                        System.out.println();
+        
+                        System.out.println("Elija una opcion: ");
+                        int op2 = sc.nextInt();
+                        sc.nextLine();
+             // Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago
+                        switch (op2){
+                            case 1:
+                                System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
+                                Random rd = new Random();
+                                int codigo = rd.nextInt(9000)+1000;
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarRev,TipoPago.TARJETA,valorAPagarRev,"REVISIÓN");
+                                ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                break;
+                            case 2:
+                                System.out.println("El pago ha sido cancelado.");
+                        }
+                        break;
+                        
+                    default:
+                        System.out.println("Opción inválida");
+                        break;
+                }
+                break;
+                
+            default:
+                System.out.println("Opción inválida");
+                break;
         }
     }
 

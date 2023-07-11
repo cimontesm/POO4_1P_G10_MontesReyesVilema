@@ -165,7 +165,7 @@ public class Cliente extends Usuario {
                     double totalAPagar = 150;
                     for (Multa mult : multasCliente){
                         totalAPagar += rev.valorRevision(150,mult);
-                    }
+                    } totalAPagar += totalAPagar-(totalAPagar*0.20);
                     System.out.println("Valor a pagar: "+totalAPagar);
                     System.out.println("Puede pagar su cita hasta 24 horas antes de la cita.");
                     System.out.println("De lo contrario la cita se cancelará.");
