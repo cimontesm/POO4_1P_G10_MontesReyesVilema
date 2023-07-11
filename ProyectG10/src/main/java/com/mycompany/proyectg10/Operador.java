@@ -148,14 +148,16 @@ public class Operador extends Usuario {
      */
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
-            Cliente op = (Cliente) usuario;
-            if (op.getTipoC().equals("ESTANDAR")) {
-                System.out.println(op.getNombre() + " | " + op.getTipoC().ESTANDAR + " | " + op.getNumCedula());
-
-            } else if (op.getTipoC().equals("ESTRELLA")) {
-                System.out.println(op.getNombre() + " | " + op.getTipoC().ESTRELLA + " | " + op.getNumCedula());
-            } else {
-                System.out.println(op.getNombre() + " | " + " | " + sueldo);
+            if (usuario instanceof Cliente){
+                Cliente cl = (Cliente) usuario;
+                if (cl.getTipoC().equals(TipoCliente.ESTANDAR)) {
+                    System.out.println(cl.getNombre() + " | " + "CLIENTE " + cl.getTipoC() + " | " + cl.getNumCedula());
+                } else if (cl.getTipoC().equals(TipoCliente.ESTRELLA)) {
+                    System.out.println(cl.getNombre() + " | " + "CLIENTE " + cl.getTipoC() + " | " + cl.getNumCedula());
+                }
+            } else if (usuario instanceof Operador){
+                Operador op = (Operador) usuario;
+                System.out.println(op.getNombre() + " | " + "OPERADOR" + " | " + sueldo);
             }
         }
 
