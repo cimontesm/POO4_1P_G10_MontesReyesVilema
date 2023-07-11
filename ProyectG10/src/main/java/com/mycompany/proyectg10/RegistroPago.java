@@ -156,7 +156,7 @@ public class RegistroPago {
 
     }
     /**
-     * Metodo para escribir la Multa
+     * Metodo para escribir el Pago
      * @return String
      */
     public String escribirPago() {

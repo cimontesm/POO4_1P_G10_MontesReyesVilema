@@ -138,7 +138,7 @@ public class Operador extends Usuario {
                                 System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
                                 Random rd = new Random();
                                 int codigo = rd.nextInt(9000)+1000;
-                                RegistroPago pago = new RegistroPago(usuario.,codigo,valorAPagarMult,TipoPago.TARJETA,valorAPagarMult,"MULTA");
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.TARJETA,valorAPagarMult,"MULTA");
                                 ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
                                 break;
                             case 2:

@@ -85,9 +85,7 @@ public class Revision {
     public void setFechaRevision(Date fechaRevision) {
         this.fechaRevision = fechaRevision;
     }
-
-  
-      /**
+    /**
      * Metodo que nos permite escribir Revision
      * @return String
      */

@@ -96,7 +96,8 @@ public class Cliente extends Usuario {
         this.vehiculo = vehiculo;
     }
         /**
-     * Metodo sobrescrito 
+     * Metodo sobrescrito del método abstracto en la clase padre
+     * @param listaMultas ArrayList<Multa>
      */
     @Override
     public void consultarMultas(ArrayList<Multa> listaMultas){
@@ -123,7 +124,7 @@ public class Cliente extends Usuario {
 //        sc.close();
     }
         /**
-     * Metodo getter para agendar revision
+     * Metodo para agendar revision
      * @param listaMultas ArrayList<Multa>
      */
     public void agendarRev(ArrayList<Multa> listaMultas){

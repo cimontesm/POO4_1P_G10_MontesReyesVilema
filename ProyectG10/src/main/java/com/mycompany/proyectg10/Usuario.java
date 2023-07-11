@@ -35,7 +35,10 @@ public abstract class Usuario {
         this.usuario = usuario;
     }
     
-    
+    /**
+     * Metodo abstracto en la clase padre
+     * @param listaMultas ArrayList<Multa>
+     **/
     public abstract void consultarMultas(ArrayList<Multa> listaMultas);
 
     
