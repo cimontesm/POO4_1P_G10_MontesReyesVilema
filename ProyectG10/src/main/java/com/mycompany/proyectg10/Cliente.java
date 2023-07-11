@@ -111,7 +111,7 @@ public class Cliente extends Usuario {
         System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
         for (Multa multa : listaMultas){
             if (dato.equals(multa.getCliente().getNumCedula()) || dato.equals(multa.getCliente().getVehiculo().getNumPlaca())){
-                multa.toString();
+                System.out.println(multa);
                 valoresMultas.add(multa.getValorAPagar());
             }
         }
@@ -157,14 +157,14 @@ public class Cliente extends Usuario {
                     Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (num == posArchivo){
-                    System.out.println(getNombre()+", se ha agendado su cita para el "+fechaRevision+" a las "+elementos[2]);
+                    System.out.println(getNombre()+", se ha agendado su cita para el "+elementos[1]+" a las "+elementos[2]);
                     Random rd = new Random();
                     int codigo = rd.nextInt(9000)+1000;
                     Revision rev = new Revision(codigo,getNumCedula(),vehiculo.getNumPlaca(),fechaRevision);
                     ManejoArchivos.EscribirArchivo("AgendaRevisiones.txt", rev.escribirRevision());
-                    double totalAPagar = 0;
+                    double totalAPagar = 150;
                     for (Multa mult : multasCliente){
-                        totalAPagar += rev.valorRevision(mult);
+                        totalAPagar += rev.valorRevision(150,mult);
                     }
                     System.out.println("Valor a pagar: "+totalAPagar);
                     System.out.println("Puede pagar su cita hasta 24 horas antes de la cita.");

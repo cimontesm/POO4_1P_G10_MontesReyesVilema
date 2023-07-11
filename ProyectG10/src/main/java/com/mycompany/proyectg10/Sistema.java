@@ -31,10 +31,6 @@ public class Sistema {
         cargarListaUsuarios();
         cargarListaMultas();
         
-//        System.out.println(listaVehiculos);
-//        System.out.println(listaUsuarios);
-//        System.out.println(listaMultas);
-        
         Usuario usuario = inciarSesion();
         
         if (usuario instanceof Cliente){
@@ -154,7 +150,7 @@ public class Sistema {
         while(x!=false){
             System.out.print("Usuario: ");
             String usuarioI = sc.nextLine();
-            System.out.print("Contrasena: ");
+            System.out.print("Contraseña: ");
             String contrasenaI = sc.nextLine();
             for(Usuario usuario : listaUsuarios){
                 if(usuario.getUsuario().equals(usuarioI) && usuario.getContrasenia().equals(contrasenaI)){

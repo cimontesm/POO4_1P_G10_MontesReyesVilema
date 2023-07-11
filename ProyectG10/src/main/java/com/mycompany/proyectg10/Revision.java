@@ -99,10 +99,9 @@ public class Revision {
      * @param multa Multa
      * @return valorAPagar devuelve el valor final según el tipo
      */
-    public double valorRevision(Multa multa){
-        double base = 150;
+    public double valorRevision(double base, Multa multa){
         double valorAPagar = 0;
-        if(multa.getCliente().getTipoC()==TipoCliente.ESTANDAR){
+        if(multa.getCliente().getTipoC().equals(TipoCliente.ESTANDAR)){
             valorAPagar += base+(multa.getPuntos()*10);
         }else{
             valorAPagar += base-(base*0.20);
