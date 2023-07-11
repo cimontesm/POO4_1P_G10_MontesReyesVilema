@@ -155,7 +155,10 @@ public class RegistroPago {
         return total;
 
     }
-
+    /**
+     * Metodo para escribir la Multa
+     * @return String
+     */
     public String escribirPago() {
         return this.codPago + "," + this.cliente.getNumCedula() + "," + this.valorPagar + " , "+ this.getRazonPago();
     }

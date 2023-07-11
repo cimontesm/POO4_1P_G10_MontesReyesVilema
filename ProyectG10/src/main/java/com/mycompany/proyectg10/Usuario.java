@@ -34,7 +34,8 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
         this.usuario = usuario;
     }
-
+    
+    
     public abstract void consultarMultas(ArrayList<Multa> listaMultas);
 
     
