@@ -160,7 +160,7 @@ public class RegistroPago {
      * @return String
      */
     public String escribirPago() {
-        return this.codPago + "," + this.cliente.getNumCedula() + "," + this.valorPagar + " , "+ this.getRazonPago();
+        return this.codPago + "," + this.cliente.getNumCedula() + "," + this.valorPagar + ","+ this.getRazonPago();
     }
 
 }

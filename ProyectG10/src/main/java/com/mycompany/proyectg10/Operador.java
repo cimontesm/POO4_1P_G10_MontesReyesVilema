@@ -60,7 +60,7 @@ public class Operador extends Usuario {
         double valorAPagarRev = 0;
         System.out.print("Ingrese el número de cédula del cliente: ");
         String cedulaCl = sc.nextLine();
-        Cliente cliente;
+        Cliente cliente = null;
         for (Usuario usuario : listaUsuarios) {
             if (cedulaCl.equals(usuario.numCedula)) {
                 for (Multa multa : listaMultas) {
@@ -101,7 +101,7 @@ public class Operador extends Usuario {
                         System.out.println("2. No");
                         System.out.println();
         
-                        System.out.println("Elija una opcion: ");
+                        System.out.print("Elija una opcion: ");
                         int op = sc.nextInt();
                         sc.nextLine();
              // Cliente cliente, int codPago, double valorPagar, TipoPago modoPago, double valorFinal, String razonPago
@@ -112,9 +112,14 @@ public class Operador extends Usuario {
                                 int codigo = rd.nextInt(9000)+1000;
                                 RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.EFECTIVO,valorAPagarMult,"MULTA");
                                 ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                for (Multa m : multasCliente){
+//                                    int indice = listaMultas.indexOf(m);
+                                    listaMultas.remove(m);
+                                }
                                 break;
                             case 2:
                                 System.out.println("El pago ha sido cancelado.");
+                                break;
                         }
                         break;
                         
@@ -138,11 +143,15 @@ public class Operador extends Usuario {
                                 System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
                                 Random rd = new Random();
                                 int codigo = rd.nextInt(9000)+1000;
-                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.TARJETA,valorAPagarMult,"MULTA");
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarMult,TipoPago.TARJETA,pagoF,"MULTA");
                                 ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
+                                for (Multa m : multasCliente){
+                                    listaMultas.remove(m);
+                                }
                                 break;
                             case 2:
                                 System.out.println("El pago ha sido cancelado.");
+                                break;
                         }
                         break;
                         
@@ -190,6 +199,7 @@ public class Operador extends Usuario {
                                 break;
                             case 2:
                                 System.out.println("El pago ha sido cancelado.");
+                                break;
                         }
                         break;
                         
@@ -213,11 +223,12 @@ public class Operador extends Usuario {
                                 System.out.println("Se ha realizado el pago. Ahora puede proceder a la revisión.");
                                 Random rd = new Random();
                                 int codigo = rd.nextInt(9000)+1000;
-                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarRev,TipoPago.TARJETA,valorAPagarRev,"REVISIÓN");
+                                RegistroPago pago = new RegistroPago(cliente,codigo,valorAPagarRev,TipoPago.TARJETA,pagoF,"REVISIÓN");
                                 ManejoArchivos.EscribirArchivo("pagos.txt", pago.escribirPago());
                                 break;
                             case 2:
                                 System.out.println("El pago ha sido cancelado.");
+                                break;
                         }
                         break;
                         
@@ -245,7 +256,7 @@ public class Operador extends Usuario {
     /**
      * Metodo getter para consultar el sueldo del Operador
      *
-     * @return sueldo del Operador
+     * @param sueldo
      */
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
@@ -273,7 +284,7 @@ public class Operador extends Usuario {
     /**
      * Método para poder consultar los usuarios
      *
-     * @param listaUsuarios ArrayList<Usuario>
+     * @param listaUsuarios
      */
     public void consultarUsuarios(ArrayList<Usuario> listaUsuarios) {
         for (Usuario usuario : listaUsuarios) {
