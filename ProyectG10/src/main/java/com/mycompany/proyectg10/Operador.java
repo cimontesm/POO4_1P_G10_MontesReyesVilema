@@ -7,6 +7,7 @@ package com.mycompany.proyectg10;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Calendar;
 
 /**
  *
@@ -37,9 +38,9 @@ public class Operador extends Usuario {
     /**
      * Metodo para registrar el pago ya sea multa o revision
      *
-     * @param listaUsuarios ArrayList<Usuario>
-     * @param listaMultas ArrayList<Multa>
      *
+     * @param listaUsuarios
+     * @param listaMultas
      */
     public void registrarPago(ArrayList<Usuario> listaUsuarios, ArrayList<Multa> listaMultas) {
         Scanner sc = new Scanner(System.in);
@@ -269,14 +270,110 @@ public class Operador extends Usuario {
     public void consultarMultas(ArrayList<Multa> listaMultas) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el mes a consultar: ");
+        System.out.print("Ingrese el mes a consultar (en minúsculas): ");
         String mes = sc.nextLine();
-        System.out.println("Conductores Multados");
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("                                         Conductores Multados                                         ");
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
         for (Multa multa : listaMultas) {
-            if (mes.equals(mes)) {
-                System.out.println("-------------------------------------------------------------------");
-                System.out.println("CÉDULA | MATRÍCULA | INFRACCIÓN | VALOR A PAGAR | FECHA DE INFRACCIÓN | FECHA DE NOTIFICACIÓN | PUNTOS");
-                multa.toString();
+            switch (mes){
+                case "enero":
+                    Calendar calendarE = Calendar.getInstance();
+                    calendarE.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarE);
+                    if (calendarE.get(Calendar.MONTH) == 0){
+                        multa.toString();
+                    }
+                    break;
+                case "febrero":
+                    Calendar calendarF = Calendar.getInstance();
+                    calendarF.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarF);
+                    if (calendarF.get(Calendar.MONTH) == 1){
+                        multa.toString();
+                    }
+                    break;
+                case "marzo":
+                    Calendar calendarM = Calendar.getInstance();
+                    calendarM.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarM);
+                    if (calendarM.get(Calendar.MONTH) == 2){
+                        multa.toString();
+                    }
+                    break;
+                case "abril":
+                    Calendar calendarA = Calendar.getInstance();
+                    calendarA.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarA);
+                    if (calendarA.get(Calendar.MONTH) == 3){
+                        multa.toString();
+                    }
+                    break;
+                case "mayo":
+                    Calendar calendarMY = Calendar.getInstance();
+                    calendarMY.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarMY);
+                    if (calendarMY.get(Calendar.MONTH) == 4){
+                        multa.toString();
+                    }
+                    break;
+                case "junio":
+                    Calendar calendarJ = Calendar.getInstance();
+                    calendarJ.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarJ);
+                    if (calendarJ.get(Calendar.MONTH) == 5){
+                        multa.toString();
+                    }
+                    break;
+                case "julio":
+                    Calendar calendarJL = Calendar.getInstance();
+                    calendarJL.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarJL);
+                    if (calendarJL.get(Calendar.MONTH) == 6){
+                        multa.toString();
+                    }
+                    break;
+                case "agosto":
+                    Calendar calendarAG = Calendar.getInstance();
+                    calendarAG.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarAG);
+                    if (calendarAG.get(Calendar.MONTH) == 7){
+                        multa.toString();
+                    }
+                    break;
+                case "septiembre":
+                    Calendar calendarS = Calendar.getInstance();
+                    calendarS.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarS);
+                    if (calendarS.get(Calendar.MONTH) == 8){
+                        multa.toString();
+                    }
+                    break;
+                case "octubre":
+                    Calendar calendarO = Calendar.getInstance();
+                    calendarO.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarO);
+                    if (calendarO.get(Calendar.MONTH) == 9){
+                        multa.toString();
+                    }
+                    break;
+                case "noviembre":
+                    Calendar calendarN = Calendar.getInstance();
+                    calendarN.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarN);
+                    if (calendarN.get(Calendar.MONTH) == 10){
+                        multa.toString();
+                    }
+                    break;
+                case "diciembre":
+                    Calendar calendarD = Calendar.getInstance();
+                    calendarD.setTime(multa.getFechaInfraccion());
+                    System.out.println(calendarD);
+                    if (calendarD.get(Calendar.MONTH) == 11){
+                        multa.toString();
+                    }
+                    break;
             }
         }
     }
