@@ -281,7 +281,7 @@ public class Operador extends Usuario {
                 case "enero":
                     Calendar calendarE = Calendar.getInstance();
                     calendarE.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarE);
+//                    System.out.println(calendarE);
                     if (calendarE.get(Calendar.MONTH) == 0){
                         multa.toString();
                     }
@@ -289,7 +289,7 @@ public class Operador extends Usuario {
                 case "febrero":
                     Calendar calendarF = Calendar.getInstance();
                     calendarF.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarF);
+//                    System.out.println(calendarF);
                     if (calendarF.get(Calendar.MONTH) == 1){
                         multa.toString();
                     }
@@ -297,7 +297,7 @@ public class Operador extends Usuario {
                 case "marzo":
                     Calendar calendarM = Calendar.getInstance();
                     calendarM.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarM);
+//                    System.out.println(calendarM);
                     if (calendarM.get(Calendar.MONTH) == 2){
                         multa.toString();
                     }
@@ -305,7 +305,7 @@ public class Operador extends Usuario {
                 case "abril":
                     Calendar calendarA = Calendar.getInstance();
                     calendarA.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarA);
+//                    System.out.println(calendarA);
                     if (calendarA.get(Calendar.MONTH) == 3){
                         multa.toString();
                     }
@@ -313,7 +313,7 @@ public class Operador extends Usuario {
                 case "mayo":
                     Calendar calendarMY = Calendar.getInstance();
                     calendarMY.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarMY);
+//                    System.out.println(calendarMY);
                     if (calendarMY.get(Calendar.MONTH) == 4){
                         multa.toString();
                     }
@@ -321,7 +321,7 @@ public class Operador extends Usuario {
                 case "junio":
                     Calendar calendarJ = Calendar.getInstance();
                     calendarJ.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarJ);
+//                    System.out.println(calendarJ);
                     if (calendarJ.get(Calendar.MONTH) == 5){
                         multa.toString();
                     }
@@ -329,7 +329,7 @@ public class Operador extends Usuario {
                 case "julio":
                     Calendar calendarJL = Calendar.getInstance();
                     calendarJL.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarJL);
+//                    System.out.println(calendarJL);
                     if (calendarJL.get(Calendar.MONTH) == 6){
                         multa.toString();
                     }
@@ -337,7 +337,7 @@ public class Operador extends Usuario {
                 case "agosto":
                     Calendar calendarAG = Calendar.getInstance();
                     calendarAG.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarAG);
+//                    System.out.println(calendarAG);
                     if (calendarAG.get(Calendar.MONTH) == 7){
                         multa.toString();
                     }
@@ -345,7 +345,7 @@ public class Operador extends Usuario {
                 case "septiembre":
                     Calendar calendarS = Calendar.getInstance();
                     calendarS.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarS);
+//                    System.out.println(calendarS);
                     if (calendarS.get(Calendar.MONTH) == 8){
                         multa.toString();
                     }
@@ -353,7 +353,7 @@ public class Operador extends Usuario {
                 case "octubre":
                     Calendar calendarO = Calendar.getInstance();
                     calendarO.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarO);
+//                    System.out.println(calendarO);
                     if (calendarO.get(Calendar.MONTH) == 9){
                         multa.toString();
                     }
@@ -361,7 +361,7 @@ public class Operador extends Usuario {
                 case "noviembre":
                     Calendar calendarN = Calendar.getInstance();
                     calendarN.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarN);
+//                    System.out.println(calendarN);
                     if (calendarN.get(Calendar.MONTH) == 10){
                         multa.toString();
                     }
@@ -369,7 +369,7 @@ public class Operador extends Usuario {
                 case "diciembre":
                     Calendar calendarD = Calendar.getInstance();
                     calendarD.setTime(multa.getFechaInfraccion());
-                    System.out.println(calendarD);
+//                    System.out.println(calendarD);
                     if (calendarD.get(Calendar.MONTH) == 11){
                         multa.toString();
                     }
